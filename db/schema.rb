@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114212742) do
+ActiveRecord::Schema.define(version: 20160114215332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,13 +214,9 @@ ActiveRecord::Schema.define(version: 20160114212742) do
     t.string   "xbox_user"
     t.string   "psn"
     t.string   "nnid"
-    t.integer  "game_id"
-    t.integer  "platform_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["game_id"], name: "index_users_on_game_id", using: :btree
-  add_index "users", ["platform_id"], name: "index_users_on_platform_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
@@ -245,6 +241,4 @@ ActiveRecord::Schema.define(version: 20160114212742) do
   add_foreign_key "tournament_users", "users"
   add_foreign_key "tournaments", "games"
   add_foreign_key "tournaments", "platforms"
-  add_foreign_key "users", "games"
-  add_foreign_key "users", "platforms"
 end
