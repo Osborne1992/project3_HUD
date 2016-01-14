@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114212017) do
+ActiveRecord::Schema.define(version: 20160114212742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20160114212017) do
   add_index "game_tournaments", ["game_id"], name: "index_game_tournaments_on_game_id", using: :btree
   add_index "game_tournaments", ["tournament_id"], name: "index_game_tournaments_on_tournament_id", using: :btree
 
+  create_table "game_users", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "game_users", ["game_id"], name: "index_game_users_on_game_id", using: :btree
+  add_index "game_users", ["user_id"], name: "index_game_users_on_user_id", using: :btree
+
   create_table "games", force: :cascade do |t|
     t.string   "genre"
     t.integer  "rating"
@@ -124,6 +134,13 @@ ActiveRecord::Schema.define(version: 20160114212017) do
     t.text     "message"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "remove_game_id_and_platform_id_from_users", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "platform_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -222,6 +239,8 @@ ActiveRecord::Schema.define(version: 20160114212017) do
   add_foreign_key "game_platforms", "platforms"
   add_foreign_key "game_tournaments", "games"
   add_foreign_key "game_tournaments", "tournaments"
+  add_foreign_key "game_users", "games"
+  add_foreign_key "game_users", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "platform_users", "platforms"
