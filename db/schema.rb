@@ -136,13 +136,6 @@ ActiveRecord::Schema.define(version: 20160114212742) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "remove_game_id_and_platform_id_from_users", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "platform_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "user_id"
