@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :events, through: :event_users
   has_many :tournaments, through: :tournament_users
   has_many :platforms, through: :platform_users
+  has_many :games, through: :game_users
 
 
   has_and_belongs_to_many :private_messages
