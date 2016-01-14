@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  host: MyString
+  creator_id: 1
+  start_date: 2016-01-14 15:23:31
+  start_time: 2016-01-14 15:23:31
+  end_date: 2016-01-14 15:23:31
+  end_time: 2016-01-14 15:23:31
+  description: MyText
+  private: false
+  location: MyString
+
+two:
+  name: MyString
+  host: MyString
+  creator_id: 1
+  start_date: 2016-01-14 15:23:31
+  start_time: 2016-01-14 15:23:31
+  end_date: 2016-01-14 15:23:31
+  end_time: 2016-01-14 15:23:31
+  description: MyText
+  private: false
+  location: MyString

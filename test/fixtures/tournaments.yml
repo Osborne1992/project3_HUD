@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  host: MyString
+  creator_id: 1
+  start_date: 2016-01-14 15:24:42
+  start_time: 2016-01-14 15:24:42
+  end_date: 2016-01-14 15:24:42
+  end_time: 2016-01-14 15:24:42
+  description: MyText
+  private: false
+  location: MyString
+  game_id: 
+  platform_id: 
+  first_prize: MyString
+  second_prize: MyString
+  third_prize: MyString
+
+two:
+  name: MyString
+  host: MyString
+  creator_id: 1
+  start_date: 2016-01-14 15:24:42
+  start_time: 2016-01-14 15:24:42
+  end_date: 2016-01-14 15:24:42
+  end_time: 2016-01-14 15:24:42
+  description: MyText
+  private: false
+  location: MyString
+  game_id: 
+  platform_id: 
+  first_prize: MyString
+  second_prize: MyString
+  third_prize: MyString
