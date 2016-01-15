@@ -3,8 +3,23 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
 
+  resources :event
+  resources :event_tournament
+  resources :event_user
+  resources :friendship
+  resources :game
+  resources :game_platform
+  resources :game_tournament
+  resources :game_user
   resources :group
-  resources :groupuser
+  resources :group_user
+  resources :platform
+  resources :platform_user
+  resources :private_message
+  resources :review
+  resources :tournament
+  resources :tournament_user
+  resources :user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
