@@ -12,4 +12,8 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+  belongs_to :event
+  belongs_to :group
+  belongs_to :review
+  belongs_to :tournament
 end
