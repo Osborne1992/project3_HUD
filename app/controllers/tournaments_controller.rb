@@ -1,3 +1,7 @@
-class TournamentController < ApplicationController
-  
+class TournamentsController < ApplicationController
+
+  def index
+
+  end
+
 end

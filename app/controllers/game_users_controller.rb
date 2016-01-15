@@ -1,3 +1,7 @@
-class GameUserController < ApplicationController
-  
+class GameUsersController < ApplicationController
+
+  def index
+
+  end
+
 end

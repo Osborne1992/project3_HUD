@@ -1,3 +1,7 @@
-class GamePlatformController < ApplicationController
-  
+class GamePlatformsController < ApplicationController
+
+  def index
+
+  end
+
 end

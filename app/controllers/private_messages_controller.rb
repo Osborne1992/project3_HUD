@@ -1,3 +1,7 @@
-class PrivateMessageController < ApplicationController
-  
+class PrivateMessagesController < ApplicationController
+
+  def index
+
+  end
+
 end

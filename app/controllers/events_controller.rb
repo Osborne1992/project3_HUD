@@ -1,3 +1,7 @@
-class EventController < ApplicationController
-  
+class EventsController < ApplicationController
+
+  def index
+
+  end
+
 end

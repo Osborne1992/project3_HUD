@@ -1,3 +1,7 @@
-class PlatformUserController < ApplicationController
-  
+class PlatformUsersController < ApplicationController
+
+  def index
+
+  end
+
 end

@@ -1,3 +1,7 @@
-class FriendshipController < ApplicationController
-  
+class FriendshipsController < ApplicationController
+
+  def index
+
+  end
+
 end

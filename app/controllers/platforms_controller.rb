@@ -1,3 +1,7 @@
-class PlatformController < ApplicationController
-  
+class PlatformsController < ApplicationController
+
+  def index
+
+  end
+
 end
