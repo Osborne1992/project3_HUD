@@ -3,10 +3,14 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
-  has_many :group_users
-  has_many :groups, through: :group_users
   has_many :reviews
+  has_many :group_users
+  has_many :event_users
+  has_many :tournament_users
+  has_many :platform_users
+  has_many :game_users
 
+  has_many :groups, through: :group_users
   has_many :events, through: :event_users
   has_many :tournaments, through: :tournament_users
   has_many :platforms, through: :platform_users
