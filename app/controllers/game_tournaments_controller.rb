@@ -1,0 +1,3 @@
+class GameTournamentController < ApplicationController
+  
+end

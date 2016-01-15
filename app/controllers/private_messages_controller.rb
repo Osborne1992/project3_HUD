@@ -1,0 +1,3 @@
+class PrivateMessageController < ApplicationController
+  
+end

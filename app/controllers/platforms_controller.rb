@@ -1,0 +1,3 @@
+class PlatformController < ApplicationController
+  
+end
