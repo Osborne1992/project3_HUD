@@ -9,12 +9,16 @@ class User < ActiveRecord::Base
   has_many :tournament_users
   has_many :platform_users
   has_many :game_users
+  has_many :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
 
   has_many :groups, through: :group_users
   has_many :events, through: :event_users
   has_many :tournaments, through: :tournament_users
   has_many :platforms, through: :platform_users
   has_many :games, through: :game_users
+  has_many :friends, through: :friendships
+  has_many :inverse_friends, through: :inverse_friendships, :source => :user
 
 
   has_and_belongs_to_many :private_messages
