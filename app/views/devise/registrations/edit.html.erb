@@ -9,6 +9,12 @@
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
   <br>
+  <%= f.label :platform_ids, "Platforms:" %>
+  <%= f.collection_check_boxes :platform_ids, Platform.all, :id, :name %>
+  <br>
+  <%= f.label :game_ids, "Games:" %>
+  <%= f.collection_check_boxes :game_ids, Game.all.order(:name) %>
+  <br>
   New Password <i>(changing is optional)</i> and Confirm New Password<br />
   <%= f.password_field :password, autocomplete: "off" %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
