@@ -13,7 +13,7 @@
   <%= f.collection_check_boxes :platform_ids, Platform.all, :id, :name %>
   <br>
   <%= f.label :game_ids, "Games:" %>
-  <%= f.collection_check_boxes :game_ids, Game.all.order(:name) %>
+  <%= f.collection_check_boxes :game_ids, Game.all.order(:name), :id, :name %>
   <br>
   New Password <i>(changing is optional)</i> and Confirm New Password<br />
   <%= f.password_field :password, autocomplete: "off" %>
