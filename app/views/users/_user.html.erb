@@ -1,0 +1,32 @@
+<tr>
+  <td style="text-align:center">
+    <br />
+    <% if user.first_name == nil %>
+      <em>
+        <small>
+          no first name data
+        </small>
+      </em>
+    <% else %>
+      <%= user.try(:first_name) %>
+    <% end %>
+  </td>
+  <td style="text-align:center">
+    <br />
+    <% if user.last_name == nil %>
+      <em>
+        <small>
+          no last name data
+        </small>
+      </em>
+    <% else %>
+      <%= user.try(:last_name) %>
+    <% end %>
+  </td>
+  <td style="text-align:center">
+    <br />
+    <strong>
+      <%= user.username %>
+    </strong>
+  </td>
+</tr>

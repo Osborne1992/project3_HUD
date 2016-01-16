@@ -9,12 +9,11 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters
-    extra_fields = [:username, :first_name, :last_name, :steam_id, :origin_id, :uplay_id, :xbox_user, :psn, :nnid]
+    registration_params = [:username, :email, :password, :password_confirmation]
+    extra_fields = [:first_name, :last_name, :steam_id, :origin_id, :uplay_id, :xbox_user, :psn, :nnid]
+
     extra_fields.each { |field| devise_parameter_sanitizer.for(:sign_up) << field }
     extra_fields.each { |field| devise_parameter_sanitizer.for(:account_update) << field }
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
-        devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
-        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
 end
