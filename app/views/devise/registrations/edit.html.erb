@@ -15,6 +15,24 @@
   <%= f.label :game_ids, "Games:" %>
   <%= f.collection_check_boxes :game_ids, Game.all.order(:name), :id, :name %>
   <br>
+  <%= f.label :steam_id %>
+  <%= f.text_field :steam_id %>
+  <br>
+  <%= f.label :origin_id %>
+  <%= f.text_field :origin_id %>
+  <br>
+  <%= f.label :uplay_id %>
+  <%= f.text_field :uplay_id %>
+  <br>
+  <%= f.label :xbox_user %>
+  <%= f.text_field :xbox_user %>
+  <br>
+  <%= f.label :psn %>
+  <%= f.text_field :psn %>
+  <br>
+  <%= f.label :nnid %>
+  <%= f.text_field :nnid %>
+  <br>
   New Password <i>(changing is optional)</i> and Confirm New Password<br />
   <%= f.password_field :password, autocomplete: "off" %>
   <%= f.password_field :password_confirmation, autocomplete: "off" %>
