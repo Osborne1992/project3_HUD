@@ -1,0 +1,85 @@
+<%= form_for(@review) do |f| %>
+  <%= f.label :game_id, "Game: " %>
+  <%= f.select :game_id, Game.all.map { |g| [g.name, g.id] } %>
+<br>
+<br>
+  <%= f.label :platform_id, 'Platform: ' %>
+  <%= f.select :platform_id, Platform.all.map { |p| [p.name, p.id] } %>
+<br>
+<br>
+  <%= f.label :title, 'Title: ' %>
+  <%= f.text_field :title %>
+<br>
+<br>
+  <%= f.label :body, 'Your Review: ' %>
+  <%= f.text_area :body %>
+<br>
+<br>
+<h3>
+  Ratings
+</h3>
+Story
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_story| %>
+    <%= f.radio_button :rate_story, rate_story, class: 'rating-input' %>
+    <%= f.label "rate_story_#{rate_story}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Difficulty
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_difficulty| %>
+    <%= f.radio_button :rate_difficulty, rate_difficulty, class: 'rating-input' %>
+    <%= f.label "rate_difficulty_#{rate_difficulty}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Length
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_length| %>
+    <%= f.radio_button :rate_length, rate_length, class: 'rating-input' %>
+    <%= f.label "rate_length_#{rate_length}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Mechanics
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_mechanics| %>
+    <%= f.radio_button :rate_mechanics, rate_mechanics, class: 'rating-input' %>
+    <%= f.label "rate_mechanics_#{rate_mechanics}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Audio
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_audio| %>
+    <%= f.radio_button :rate_audio, rate_audio, class: 'rating-input' %>
+    <%= f.label "rate_audio_#{rate_audio}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Performance
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_performance| %>
+    <%= f.radio_button :rate_performance, rate_performance, class: 'rating-input' %>
+    <%= f.label "rate_performance_#{rate_performance}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Art Style
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_art_style| %>
+    <%= f.radio_button :rate_art_style, rate_art_style, class: 'rating-input' %>
+    <%= f.label "rate_art_style_#{rate_art_style}", nil, class: 'rating-star' %>
+  <% end %>
+</span><br />
+Immersion
+<span class="rating">
+  <% (1..5).to_a.reverse.each do |rate_immersion| %>
+    <%= f.radio_button :rate_immersion, rate_immersion, class: 'rating-input' %>
+    <%= f.label "rate_immersion_#{rate_immersion}", nil, class: 'rating-star' %>
+  <% end %>
+</span>
+<br>
+<br>
+<center>
+  <%= f.submit button_text  %>
+  <br>
+  <small><%= link_to "cancel", :back %></small>
+</center>
+
+<% end %>

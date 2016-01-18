@@ -76,4 +76,27 @@
 </table>
 <br>
 <br>
+
+
+<h2>Friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+    <li>
+      <%=h friendship.friend.username %>
+      (<%= link_to "remove", friendship, :method => :delete %>)
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Find Friends", users_path %></p>
+
+<h2>Friend Requests</h2>
+<ul>
+  <% for user in @user.inverse_friends %>
+    <li><%=h user.username %></li>
+  <% end %>
+</ul>
+
+<br>
+<br>
 <%= link_to "Back", :back %> <%= link_to "Edit your profile", edit_user_registration_path, class: "edit_profile" %>

@@ -1,0 +1,28 @@
+<%= form_for(@game) do |f| %>
+  <%= f.label :name, 'Game: ' %>
+  <%= f.text_field :name %>
+<br>
+<br>
+  <%= f.label :name, 'Genre: ' %>
+  <%= f.text_field :name %>
+<br>
+<br>
+  <%= f.label :developer, 'Developed by: ' %>
+  <%= f.text_field :developer %>
+<br>
+<br>
+  <%= f.label :publisher, 'Published by: ' %>
+  <%= f.text_field :publisher %>
+<br>
+<br>
+  <%= f.label :release_date, 'Released on: ' %>
+  <%= f.date_field :release_date %>
+<br>
+<br>
+<center>
+<%= f.submit button_text  %>
+<br>
+<small><%= link_to "cancel", :back %></small>
+</center>
+
+<% end %>

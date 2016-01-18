@@ -1,0 +1,81 @@
+<small>
+  <%= link_to "Back", :back %> <%= link_to 'Edit', edit_review_path(@review) %>
+</small>
+
+<h2>
+  <%= @review.title %>
+</h2>
+<h4>
+  by <%= @review.user %>
+</h4>
+
+<strong>Average: </strong>
+<%# (1..(@review.rate_average)).each do  %>
+<%#= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<%# end %>
+<%# (1..(5 - @review.rate_average)).each do  %>
+<%#= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<%# end %>
+
+This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
+
+<%= @review.body %>
+<br>
+<strong>Story: </strong>
+<% (1..(@review.rate_story)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_story)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Difficulty: </strong>
+<% (1..(@review.rate_difficulty)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_difficulty)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Length: </strong>
+<% (1..(@review.rate_length)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_length)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Mechanics: </strong>
+<% (1..(@review.rate_mechanics)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_mechanics)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Audio: </strong>
+<% (1..(@review.rate_audio)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_audio)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Performance: </strong>
+<% (1..(@review.rate_performance)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_performance)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Art Style: </strong>
+<% (1..(@review.rate_art_style)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_art_style)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<strong>Immersion: </strong>
+<% (1..(@review.rate_immersion)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_immersion)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<br>
+review comments go here!

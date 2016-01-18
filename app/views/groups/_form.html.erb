@@ -1,0 +1,16 @@
+<%= form_for(@group) do |f| %>
+  <%= f.label :name, 'Group Name: ' %>
+  <%= f.text_field :name %>
+<br>
+<br>
+  <%= f.label :private, 'Check box to make Private (Invite Only): ' %>
+  <%= f.check_box :private %>
+<br>
+<br>
+<center>
+<%= f.submit button_text  %>
+<br>
+<small><%= link_to "cancel", :back %></small>
+</center>
+
+<% end %>

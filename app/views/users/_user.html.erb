@@ -4,7 +4,7 @@
     <% if user.first_name == nil %>
       <em>
         <small>
-          no first name data
+          no name data
         </small>
       </em>
     <% else %>
@@ -16,7 +16,7 @@
     <% if user.last_name == nil %>
       <em>
         <small>
-          no last name data
+          no name data
         </small>
       </em>
     <% else %>
@@ -25,8 +25,11 @@
   </td>
   <td style="text-align:center">
     <br />
-    <strong>
-      <%= user.username %>
-    </strong>
+    <%= user.username %>
+  </td>
+  <td>
+    <small>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+    </small>
   </td>
 </tr>

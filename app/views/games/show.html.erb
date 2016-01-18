@@ -1,0 +1,7 @@
+<h2>
+  <small><%= link_to "Back", :back %></small> <%= @game.name %> <small><%= link_to 'Edit', edit_game_path(@game) %></small>
+</h2>
+Developed by <%= @game.developer %> and published by <%= @game.publisher %> on <%= @game.release_date.strftime('%-d %b %Y') %>
+<br>
+Reviews by gamers, for gamers.
+*insert review list (if any)*

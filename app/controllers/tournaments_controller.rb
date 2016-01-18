@@ -1,7 +1,47 @@
 class TournamentsController < ApplicationController
 
-  def index
+    def index
+      @tournaments = Tournament.all.order(:name)
+    end
 
-  end
+    def show
+      @tournament = find_tournament
+    end
+
+    def new
+      @tournament = Tournament.new
+    end
+
+    def create
+      tournament = Tournament.create(tournament_params)
+      tournament.creator_id = current_user.id
+      redirect_to( tournament_path( tournament.id ) )
+    end
+
+    def destroy
+      tournament = find_tournament
+      tournament.destroy
+      redirect_to(tournaments_path)
+    end
+
+    def edit
+      @tournament = find_tournament
+    end
+
+    def update
+      tournament = find_tournament
+      tournament.update(tournament_params)
+      redirect_to(tournament_path(tournament.id))
+    end
+
+    private
+
+    def find_tournament
+      Tournament.find(params[:id])
+    end
+
+    def tournament_params
+      params.require(:tournament).permit(:name, :host, :creator_id, :start_date, :start_time, :end_date, :end_time, :description, :private, :location, :game_id, :platform_id, :first_prize, :second_prie, :third_prize)
+    end
 
 end

@@ -1,0 +1,23 @@
+Tournament created by <%= @tournament.try(:creator_id) %> *need to sort out creator id being automatically assigned when tournament is created*
+
+<h2>
+  <%= @tournament.name %> hosted by <%= @tournament.host %> at <%= @tournament.location %>
+</h2>
+
+<% if @tournament.private == true %>
+  PRIVATE TOURNAMENT
+<% else %>
+  PUBLIC TOURNAMENT
+<% end %>
+
+Playing <%= @tournament.game_id %> on the <%= @tournament.platform_id %>
+
+From <%= @tournament.start_date.strftime('%-d %b %Y') %> at <%= @tournament.start_time.strftime('%H %M') %> until <%= @tournament.end_time.strftime('%H %M') %>, <%= @tournament.end_date.strftime('%-d %b %Y') %>
+
+First Place receives: <%= @tournament.first_prize %>
+Second Place receives: <%= @tournament.second_prize %>
+Third Place receives: <%= @tournament.third_prize %>
+
+<%= @tournament.description %>
+
+<%= link_to "Back", :back %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>

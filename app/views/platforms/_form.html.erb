@@ -1,0 +1,20 @@
+<%= form_for(@platform) do |f| %>
+  <%= f.label :name, 'Platform: ' %>
+  <%= f.text_field :name %>
+<br>
+<br>
+  <%= f.label :name, 'Maker: ' %>
+  <%= f.text_field :name %>
+<br>
+<br>
+  <%= f.label :released, 'Released on: ' %>
+  <%= f.date_field :released %>
+<br>
+<br>
+<center>
+<%= f.submit button_text  %>
+<br>
+<small><%= link_to "cancel", :back %></small>
+</center>
+
+<% end %>
