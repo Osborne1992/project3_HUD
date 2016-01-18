@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   include CanCan::ControllerAdditions
 
+  check_authorization
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

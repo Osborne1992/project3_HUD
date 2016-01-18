@@ -1,5 +1,7 @@
 class TournamentsController < ApplicationController
 
+  load_and_authorize_resource
+
     def index
       @tournaments = Tournament.all.order(:name)
     end
