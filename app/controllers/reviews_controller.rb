@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.create(review_params)
-    review.user_id = current_user.id if current_user
+    review.user_id = current_user.id
     redirect_to( review_path( review.id ) )
   end
 

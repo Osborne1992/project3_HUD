@@ -71,4 +71,10 @@ class User < ActiveRecord::Base
     self.role.to_s == role_to_compare.to_s
   end
 
+
+  private
+  def set_default_role
+    self.role ||= Role.find_by_name('registered')
+  end
+
 end
