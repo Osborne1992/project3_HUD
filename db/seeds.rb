@@ -39,4 +39,4 @@ Role.delete_all
 end
 
 User.delete_all
-User.create!(first_name: "Simon", last_name: "Osborne", username: "Osborne1992", password: "password")
+User.create!(first_name: "Simon", last_name: "Osborne", username: "Osborne1992", email: "src_osborne1992@hotmail.co.uk", password: "password")
