@@ -32,3 +32,6 @@ Game.create!(name: "Call of Duty 4: Modern Warfare", genre: "First-Person Shoote
 Game.create!(name: "Gears of War 3", genre: "Third-Person Shooter", developer: "Epic Games", publisher: "Microsoft", release_date: "20 Sep 2011")
 Game.create!(name: "Grand Theft Auto V", genre: "Action-Adventure", developer: "Rockstar North", publisher: "Rockstar Games", release_date: "17 Sep 2013")
 Game.create!(name: "Assassin's Creed: Brotherhood", genre: "Action-Adventure, Stealth", developer: "Ubisoft Montreal", publisher: "Ubisoft", release_date: "19 Nov 2010")
+
+User.delete_all
+User.create!(first_name: "Simon", last_name: "Osborne", username: "Osborne1992", password: "password")

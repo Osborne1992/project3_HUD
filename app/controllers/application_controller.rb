@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
 
   include CanCan::ControllerAdditions
 
-  check_authorization
+  rescue_from CanCan::AccessDenied do |exception|
+    # @request.env['HTTP_REFERER'] = root_path
+    redirect_to root_path, alert: "You can't access this page"
+  end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -16,7 +19,20 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
 
-    extra_fields = [:first_name, :last_name, :steam_id, :origin_id, :uplay_id, :xbox_user, :psn, :nnid]
+    extra_fields = [:first_name, :last_name, :game_id, :platform_id, :steam_id, :origin_id, :uplay_id, :xbox_user, :psn, :nnid]
+
+    # registration_params = [:username, :email, :password, :password_confirmation]
+
+    # if params[:action] == 'update'
+    #   devise_parameter_sanitizer.for(:account_update) { 
+    #     |u| u.permit(registration_params << :current_password)
+    #   }
+    # elsif params[:action] == 'create'
+    #   devise_parameter_sanitizer.for(:sign_up) { 
+    #     |u| u.permit(registration_params) 
+    #   }
+    # end
+
   end
 
 end

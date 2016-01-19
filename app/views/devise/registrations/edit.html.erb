@@ -34,8 +34,7 @@
   <%= f.text_field :nnid %>
   <br>
   New Password <i>(changing is optional)</i> and Confirm New Password<br />
-  <%= f.password_field :password, autocomplete: "off" %>
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <%= f.password_field :password, autocomplete: "off" %> <%= f.password_field :password_confirmation, autocomplete: "off" %>
   <br>
   <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
   <%= f.password_field :current_password, autocomplete: "off" %>

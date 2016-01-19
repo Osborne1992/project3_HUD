@@ -16,7 +16,7 @@ class TournamentsController < ApplicationController
 
     def create
       tournament = Tournament.create(tournament_params)
-      tournament.creator_id = current_user.id
+      tournament.creator_id = current_user.id if current_user
       redirect_to( tournament_path( tournament.id ) )
     end
 

@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create(event_params)
-    event.creator_id = current_user.id
+    event.creator_id = current_user.id if current_user
     redirect_to( event_path( event.id ) )
   end
 
