@@ -1,6 +1,6 @@
 <h2>
   <%= @group.name %>
 </h2>
-Owner: <%= @group.try(:creator_id) %> *need to sort out creator id being automatically assigned when group is created*
+Owner: <%= @group.creator.username %>
 <br>
-<%= link_to 'Edit', edit_group_path(@group) %>
+<%= link_to "Back", :groups %> <%= link_to 'Edit', edit_group_path(@group) %>

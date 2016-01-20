@@ -1,4 +1,4 @@
-Tournament created by <%= @tournament.try(:creator_id) %> *need to sort out creator id being automatically assigned when tournament is created*
+Tournament created by <%= @tournament.creator.username %>
 
 <h2>
   <%= @tournament.name %> hosted by <%= @tournament.host %> at <%= @tournament.location %>
@@ -9,15 +9,20 @@ Tournament created by <%= @tournament.try(:creator_id) %> *need to sort out crea
 <% else %>
   PUBLIC TOURNAMENT
 <% end %>
-
-Playing <%= @tournament.game_id %> on the <%= @tournament.platform_id %>
-
+<br>
+Playing <%= @tournament.game.name %> on the <%= @tournament.platform.name %>
+<br>
 From <%= @tournament.start_date.strftime('%-d %b %Y') %> at <%= @tournament.start_time.strftime('%H %M') %> until <%= @tournament.end_time.strftime('%H %M') %>, <%= @tournament.end_date.strftime('%-d %b %Y') %>
-
+<br>
+<br>
 First Place receives: <%= @tournament.first_prize %>
+<br>
 Second Place receives: <%= @tournament.second_prize %>
+<br>
 Third Place receives: <%= @tournament.third_prize %>
-
+<br>
+<br>
 <%= @tournament.description %>
-
+<br>
+<br>
 <%= link_to "Back", :back %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>

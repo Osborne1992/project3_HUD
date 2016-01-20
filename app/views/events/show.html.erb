@@ -1,4 +1,4 @@
-Event created by <%= @event.try(:creator_id) %> *need to sort out creator id being automatically assigned when event is created*
+Event created by <%= @event.creator.username %>
 
 <h2>
   <%= @event.name %> hosted by <%= @event.host %> at <%= @event.location %>

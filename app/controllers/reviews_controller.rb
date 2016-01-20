@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = current_user.reviews.create(review_params)
+    review.calculate_average
     redirect_to( review )
   end
 

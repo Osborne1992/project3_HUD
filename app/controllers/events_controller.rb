@@ -11,12 +11,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = current_user.events.new
   end
 
   def create
-    event = Event.create(event_params)
-    event.creator_id = current_user.id if current_user
+    event = current_user.created_events.create(event_params)
     redirect_to( event_path( event.id ) )
   end
 

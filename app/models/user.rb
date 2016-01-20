@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
   
   has_many :comments
   has_many :reviews
-  
+  has_many :created_groups, class_name: 'Group', foreign_key: :creator_id
+  has_many :created_events, class_name: 'Event', foreign_key: :creator_id
+  has_many :created_tournaments, class_name: 'Tournament', foreign_key: :creator_id
+
   has_many :group_users
   has_many :event_users
   has_many :tournament_users

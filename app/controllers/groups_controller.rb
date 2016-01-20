@@ -19,8 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = current_user.groups.create(group_params)
-    group.creator_id = current_user.id if current_user
+    group = current_user.created_groups.create(group_params)
     redirect_to( group_path( group.id ) )
   end
 

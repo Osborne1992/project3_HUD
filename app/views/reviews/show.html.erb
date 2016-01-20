@@ -1,25 +1,26 @@
 <small>
-  <%= link_to "Back", :back %> <%= link_to 'Edit', edit_review_path(@review) %>
+  <%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>
 </small>
 
 <h2>
-  <%= @review.title %>
+  <% (1..(@review.rate_average)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+<% end %>
+<% (1..(5 - @review.rate_average)).each do  %>
+<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+<% end %>
+<%= @review.title %>
 </h2>
 <h4>
   by <%= @review.user.try(:username) %>
 </h4>
 
-<strong>Average: </strong>
-<%# (1..(@review.rate_average)).each do  %>
-<%#= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<%# end %>
-<%# (1..(5 - @review.rate_average)).each do  %>
-<%#= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<%# end %>
-
+<br>
 This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
-
+<br>
+<br>
 <%= @review.body %>
+<br>
 <br>
 <strong>Story: </strong>
 <% (1..(@review.rate_story)).each do  %>
@@ -77,5 +78,6 @@ This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
 <% (1..(5 - @review.rate_immersion)).each do  %>
 <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
 <% end %>
+<br>
 <br>
 review comments go here!

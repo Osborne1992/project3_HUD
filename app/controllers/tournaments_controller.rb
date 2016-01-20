@@ -11,12 +11,11 @@ class TournamentsController < ApplicationController
     end
 
     def new
-      @tournament = Tournament.new
+      @tournament = current_user.tournaments.new
     end
 
     def create
-      tournament = Tournament.create(tournament_params)
-      tournament.creator_id = current_user.id if current_user
+      tournament = current_user.created_tournaments.create(tournament_params)
       redirect_to( tournament_path( tournament.id ) )
     end
 
