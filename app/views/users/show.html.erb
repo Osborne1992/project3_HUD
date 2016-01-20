@@ -6,16 +6,40 @@
       image
     </td>
     <td>
-      username
+      <%= @user.username %>
     </td>
   </tr>
   <tr>
-    <td>
-      <br>first name
-    </td>
-    <td>
-      <br>last name
-    </td>
+    <% if @user.first_name == nil %>
+      <td>
+        <br>
+        <em>
+          <small>
+            no name data
+          </small>
+        </em>
+      </td>
+    <% else %>
+      <td>
+        <br>
+        <%= @user.first_name %>
+      </td>
+    <% end %>
+    <% if @user.last_name == nil %>
+      <td>
+        <br>
+        <em>
+          <small>
+            no name data
+          </small>
+        </em>
+      </td>
+    <% else %>
+      <td>
+        <br>
+        <%= @user.last_name %>
+      </td>
+    <% end %>
   </tr>
 </table>
 <br>

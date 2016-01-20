@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
   validate :validate_username
 
   validates :email, uniqueness: true
-  validates :password, length: { minimum: 8 }
 
   def validate_username
     if User.where(email: username).exists?

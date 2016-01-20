@@ -15,9 +15,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.create(review_params)
-    review.user_id = current_user.id
-    redirect_to( review_path( review.id ) )
+    review = current_user.reviews.create(review_params)
+    redirect_to( review )
   end
 
   def destroy

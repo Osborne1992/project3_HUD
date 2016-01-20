@@ -1,3 +1,3 @@
 <h2>
-  <%= link_to review.game.name, game_path(review.game.id) %> - <%= link_to("#{review.title}", review_path(review)) %> <small>by <%= review.user %></small>
+  <%= link_to review.game.name, game_path(review.game.id) %> - <%= link_to("#{review.title}", review_path(review)) %> <small>by <%= review.user.try(:username) %></small>
 </h2>

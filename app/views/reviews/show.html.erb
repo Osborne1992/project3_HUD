@@ -6,7 +6,7 @@
   <%= @review.title %>
 </h2>
 <h4>
-  by <%= @review.user %>
+  by <%= @review.user.try(:username) %>
 </h4>
 
 <strong>Average: </strong>
