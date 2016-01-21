@@ -33,6 +33,8 @@ From <%= @event.start_date.strftime('%-d %b %Y') %> at <%= @event.start_time.str
 <%= @event.description %>
 <br>
 <br>
+<%= link_to "Post a comment", new_comment_path %>
+<br>
 event comments go here
 <br>
 <br>

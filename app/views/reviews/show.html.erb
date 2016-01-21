@@ -80,4 +80,9 @@ This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
 <% end %>
 <br>
 <br>
+<%= link_to "Post a comment", new_comment_path %>
+<br>
 review comments go here!
+<br>
+<br>
+<%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>

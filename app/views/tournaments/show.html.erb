@@ -43,7 +43,9 @@ Third Place receives: <%= @tournament.third_prize %>
 <%= @tournament.description %>
 <br>
 <br>
+<%= link_to "Post a comment", new_comment_path %>
+<br>
 comments go here
 <br>
 <br>
-<%= link_to "Back", :back %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>
+<%= link_to "Back", :tournaments %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>

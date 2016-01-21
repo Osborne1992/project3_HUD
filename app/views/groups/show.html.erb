@@ -1,6 +1,14 @@
 <h2>
   <%= @group.name %>
 </h2>
+<br>
+<%= @group.description %>
 Owner: <%= @group.creator.username %>
+<br>
+
+<%= link_to "Post a comment", new_comment_path %>
+<br>
+comments go here
+<br>
 <br>
 <%= link_to "Back", :groups %> <%= link_to 'Edit', edit_group_path(@group) %>
