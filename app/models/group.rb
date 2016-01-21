@@ -7,6 +7,4 @@ class Group < ActiveRecord::Base
 
   has_many :users, through: :group_users
 
-  acts_as_commentable
-
 end

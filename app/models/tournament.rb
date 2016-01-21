@@ -11,6 +11,4 @@ class Tournament < ActiveRecord::Base
   has_many :events, through: :event_tournaments
   has_many :users, through: :tournament_users
 
-  acts_as_commentable
-
 end

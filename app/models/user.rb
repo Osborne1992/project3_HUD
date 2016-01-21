@@ -35,8 +35,6 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :private_messages
 
-  acts_as_commentable
-
   def private_messages
     PrivateMessage.where("private_messages.sender_id = :id OR private_messages.recipient_id = :id", id: id).order(:created_at)
   end
