@@ -45,9 +45,4 @@ class EventsController < ApplicationController
     params.require(:event).permit(:name, :host, :creator_id, :start_date, :start_time, :end_date, :end_time, :description, :private, :location)
   end
 
-  # comment = commentable.comments.create
-  # comment.title = "First comment."
-  # comment.comment = "This is the first comment."
-  # comment.save
-
 end
