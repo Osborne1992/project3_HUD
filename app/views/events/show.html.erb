@@ -3,6 +3,23 @@ Event created by <%= @event.creator.username %>
 <h2>
   <%= @event.name %> hosted by <%= @event.host %> at <%= @event.location %>
 </h2>
+<h3>
+  <% if @event.start_date > DateTime.now %>
+      Unbegun
+  <% else %>
+    <% if @event.start_time > DateTime.now %>
+      Starting Soon
+    <% elsif @event.end_date > DateTime.now %>
+      In Progress
+    <% else %>
+      <% if @event.end_time > DateTime.now %>
+        Finishing Soon
+      <% else %>
+        Concluded
+      <% end %>
+    <% end %>
+  <% end %>
+</h3>
 
 <% if @event.private == true %>
   PRIVATE EVENT Invite only!
