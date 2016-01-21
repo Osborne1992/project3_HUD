@@ -1,3 +1,18 @@
 <h2>
-  <%= link_to("#{tournament.name}", tournament_path(tournament)) %>
+  <%= link_to("#{tournament.name}", tournament_path(tournament)) %> Hosted by <%= tournament.host %> - 
+  <% if tournament.start_date > DateTime.now %>
+      Unbegun
+  <% else %>
+    <% if tournament.start_time > DateTime.now %>
+      Starting Soon
+    <% elsif tournament.end_date > DateTime.now %>
+      In Progress
+    <% else %>
+      <% if tournament.end_time > DateTime.now %>
+        Finishing Soon
+      <% else %>
+        Concluded
+      <% end %>
+    <% end %>
+  <% end %>
 </h2>

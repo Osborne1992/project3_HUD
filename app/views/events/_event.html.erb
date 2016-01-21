@@ -1,5 +1,5 @@
 <h2>
-  <%= link_to("#{event.name}", event_path(event)) %> by <%= link_to("#{event.creator.username}", user_path(event.creator_id)) %> 
+  <%= link_to("#{event.name}", event_path(event)) %> by <%= link_to("#{event.creator.username}", user_path(event.creator_id)) %> - 
   <% if event.start_date > DateTime.now %>
       Unbegun
   <% else %>

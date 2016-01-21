@@ -1,8 +1,26 @@
-Tournament created by <%= @tournament.creator.username %>
+Tournament created by <%= link_to @tournament.creator.username, user_path(@tournament.creator.id) %>
 
 <h2>
   <%= @tournament.name %> hosted by <%= @tournament.host %> at <%= @tournament.location %>
 </h2>
+
+<h3>This Tournament is 
+  <% if @tournament.start_date > DateTime.now %>
+      Unbegun!
+  <% else %>
+    <% if @tournament.start_time > DateTime.now %>
+      Starting Soon!
+    <% elsif @tournament.end_date > DateTime.now %>
+      In Progress!
+    <% else %>
+      <% if @tournament.end_time > DateTime.now %>
+        Finishing Soon!
+      <% else %>
+        Concluded!
+      <% end %>
+    <% end %>
+  <% end %>
+</h3>
 
 <% if @tournament.private == true %>
   PRIVATE TOURNAMENT
@@ -10,7 +28,7 @@ Tournament created by <%= @tournament.creator.username %>
   PUBLIC TOURNAMENT
 <% end %>
 <br>
-Playing <%= @tournament.game.name %> on the <%= @tournament.platform.name %>
+Playing <%= link_to @tournament.game.name, game_path(@tournament.game.id) %> on the <%= link_to @tournament.platform.name, platform_path(@tournament.platform.id) %>
 <br>
 From <%= @tournament.start_date.strftime('%-d %b %Y') %> at <%= @tournament.start_time.strftime('%H %M') %> until <%= @tournament.end_time.strftime('%H %M') %>, <%= @tournament.end_date.strftime('%-d %b %Y') %>
 <br>
@@ -23,6 +41,9 @@ Third Place receives: <%= @tournament.third_prize %>
 <br>
 <br>
 <%= @tournament.description %>
+<br>
+<br>
+comments go here
 <br>
 <br>
 <%= link_to "Back", :back %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>
