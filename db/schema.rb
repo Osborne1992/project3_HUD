@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119144640) do
+ActiveRecord::Schema.define(version: 20160121142741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "group_id"
+    t.integer  "review_id"
+    t.integer  "tournament_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "plus_one"
+    t.integer  "minus_one"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
+  add_index "comments", ["group_id"], name: "index_comments_on_group_id", using: :btree
+  add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree
+  add_index "comments", ["tournament_id"], name: "index_comments_on_tournament_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "event_tournaments", force: :cascade do |t|
     t.integer  "event_id"
@@ -227,6 +246,11 @@ ActiveRecord::Schema.define(version: 20160119144640) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "groups"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "tournaments"
+  add_foreign_key "comments", "users"
   add_foreign_key "event_tournaments", "events"
   add_foreign_key "event_tournaments", "tournaments"
   add_foreign_key "event_users", "events"
