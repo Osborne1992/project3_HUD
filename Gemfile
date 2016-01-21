@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-
-gem 'acts_as_commentable'
-
 gem 'fog'
 gem 'devise'
 gem 'cancancan'
@@ -12,7 +9,7 @@ gem 'rmagick'
 # gem 'omniauth-facebook'
 gem 'jquery-turbolinks'
 
-gem 'friendly_id'
+# gem 'friendly_id'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
