@@ -16,21 +16,6 @@ ActiveRecord::Schema.define(version: 20160119144640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.string   "title",            limit: 50, default: ""
-    t.text     "comment"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.string   "role",                        default: "comments"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
   create_table "event_tournaments", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "tournament_id"
@@ -84,16 +69,6 @@ ActiveRecord::Schema.define(version: 20160119144640) do
 
   add_index "game_platforms", ["game_id"], name: "index_game_platforms_on_game_id", using: :btree
   add_index "game_platforms", ["platform_id"], name: "index_game_platforms_on_platform_id", using: :btree
-
-  create_table "game_tournaments", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "tournament_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "game_tournaments", ["game_id"], name: "index_game_tournaments_on_game_id", using: :btree
-  add_index "game_tournaments", ["tournament_id"], name: "index_game_tournaments_on_tournament_id", using: :btree
 
   create_table "game_users", force: :cascade do |t|
     t.integer  "game_id"
@@ -259,8 +234,6 @@ ActiveRecord::Schema.define(version: 20160119144640) do
   add_foreign_key "friendships", "users"
   add_foreign_key "game_platforms", "games"
   add_foreign_key "game_platforms", "platforms"
-  add_foreign_key "game_tournaments", "games"
-  add_foreign_key "game_tournaments", "tournaments"
   add_foreign_key "game_users", "games"
   add_foreign_key "game_users", "users"
   add_foreign_key "group_users", "groups"
