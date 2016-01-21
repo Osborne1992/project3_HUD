@@ -1,3 +1,19 @@
 <h2>
-  <%= link_to("#{event.name}", event_path(event)) %> by <%= link_to("#{event.creator}", user_path(event.creator_id)) %>
+  <%= link_to("#{event.name}", event_path(event)) %> by <%= link_to("#{event.creator.username}", user_path(event.creator_id)) %> 
+  <% if event.start_date > DateTime.now %>
+      Unbegun
+  <% else %>
+    <% if event.start_time > DateTime.now %>
+      Starting Soon
+    <% elsif event.end_date > DateTime.now %>
+      In Progress
+    <% else %>
+      <% if event.end_time > DateTime.now %>
+        Finishing Soon
+      <% else %>
+        Concluded
+      <% end %>
+    <% end %>
+  <% end %>
+
 </h2>

@@ -5,13 +5,18 @@ Event created by <%= @event.creator.username %>
 </h2>
 
 <% if @event.private == true %>
-  PRIVATE EVENT
+  PRIVATE EVENT Invite only!
 <% else %>
-  PUBLIC EVENT
+  PUBLIC EVENT Come one, come all!
 <% end %>
-
+<br>
 From <%= @event.start_date.strftime('%-d %b %Y') %> at <%= @event.start_time.strftime('%H %M') %> until <%= @event.end_time.strftime('%H %M') %>, <%= @event.end_date.strftime('%-d %b %Y') %>
-
+<br>
+<br>
 <%= @event.description %>
-
+<br>
+<br>
+event comments go here
+<br>
+<br>
 <%= link_to "Back", :back %> <%= link_to 'Edit', edit_event_path(@event) %>

@@ -12,6 +12,8 @@ gem 'rmagick'
 # gem 'omniauth-facebook'
 gem 'jquery-turbolinks'
 
+gem 'friendly_id'
+
 gem 'dotenv-rails', groups: [:development, :test]
 
 

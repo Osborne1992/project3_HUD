@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, 
   :validatable
+
+  # attr_accessor :slug
+
+  # extend FriendlyId
+  # friendly_id :username, use: :slugged
   
   has_many :comments
   has_many :reviews
