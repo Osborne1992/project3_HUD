@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :comments
-  resources :events
+  resources :events do
+    resources :comments
+  end
   resources :event_tournaments
   resources :event_users
   resources :friendships
@@ -12,15 +14,23 @@ Rails.application.routes.draw do
   resources :game_platforms
   resources :game_tournaments
   resources :game_users
-  resources :groups
+  resources :groups do
+    resources :comments
+  end
   resources :group_users
   resources :platforms
   resources :platform_users
   resources :private_messages
-  resources :reviews
-  resources :tournaments
+  resources :reviews do
+    resources :comments
+  end
+  resources :tournaments do
+    resources :comments
+  end
   resources :tournament_users
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :comments
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

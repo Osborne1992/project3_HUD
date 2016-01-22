@@ -7,58 +7,58 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <nav>
+    <ul>
+      <li>
+        <%= link_to "Events", events_path %>
+      </li>
+      <li>
+        <%= link_to "Friendships", friendships_path %>
+      </li>
+      <li>
+        <%= link_to "Games", games_path %>
+      </li>
+      <li>
+        <%= link_to "Groups", groups_path %>
+      </li>
+      <li>
+        <%= link_to "Platforms", platforms_path %>
+      </li>
+      <li>
+        <%= link_to "Private Messages", private_messages_path %>
+      </li>
+      <li>
+        <%= link_to "Reviews", reviews_path %>
+      </li>
+      <li>
+        <%= link_to "Tournaments", tournaments_path %>
+      </li>
+      <li>
+        <%= link_to "Users", users_path %>
+      </li>
+      <% if user_signed_in? %>
+      <li>
+        <%= link_to "Profile", user_path(current_user) %>
+      </li>
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Sign In", new_user_session_path %>
+      </li>
+      <% end %>
+    </ul>
+  </nav>
 
-<nav>
-  <ul>
-    <li>
-      <%= link_to "Events", events_path %>
-    </li>
-    <li>
-      <%= link_to "Friendships", friendships_path %>
-    </li>
-    <li>
-      <%= link_to "Games", games_path %>
-    </li>
-    <li>
-      <%= link_to "Groups", groups_path %>
-    </li>
-    <li>
-      <%= link_to "Platforms", platforms_path %>
-    </li>
-    <li>
-      <%= link_to "Private Messages", private_messages_path %>
-    </li>
-    <li>
-      <%= link_to "Reviews", reviews_path %>
-    </li>
-    <li>
-      <%= link_to "Tournaments", tournaments_path %>
-    </li>
-    <li>
-      <%= link_to "Users", users_path %>
-    </li>
-    <% if user_signed_in? %>
-    <li>
-      <%= link_to "Profile", user_path(current_user) %>
-    </li>
-    <li>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    </li>
-    <% else %>
-    <li>
-      <%= link_to "Sign Up", new_user_registration_path %>
-    </li>
-    <li>
-      <%= link_to "Sign In", new_user_session_path %>
-    </li>
-    <% end %>
-  </ul>
-</nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <%= yield %>
-
+    <%= yield %>
+</div>
 </body>
 </html>

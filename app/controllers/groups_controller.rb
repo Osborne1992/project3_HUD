@@ -2,10 +2,6 @@ class GroupsController < ApplicationController
 
   load_and_authorize_resource
 
-  # rescue_from CanCan::AccessDenied do |exception|
-  #   redirect_to root_path, alert: "You can't access this page"
-  # end
-
   def index
     @groups = Group.all.order(:name)
   end
@@ -46,7 +42,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit(:name, :private, :creator_id)
+    params.require(:group).permit(:name, :private, :description, :creator_id)
   end
 
 end

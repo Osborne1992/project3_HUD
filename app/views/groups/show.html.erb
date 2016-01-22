@@ -1,14 +1,21 @@
 <h2>
   <%= @group.name %>
 </h2>
-<br>
 <%= @group.description %>
-Owner: <%= @group.creator.username %>
+<small>Group created by <%= @group.creator.username %></small>
 <br>
+<br>
+<%= form_for([@group, @group.comments.new]) do |f| %>
+  <%= f.text_area :body %>
+<%= f.submit 'Post'  %>
+<br>
+<small><%= link_to "cancel", :back %></small> 
 
-<%= link_to "Post a comment", new_comment_path %>
+<% end %>
 <br>
-comments go here
+<% @group.comments.limit(10).each do |comment| %>
+  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<% end %>
 <br>
 <br>
 <%= link_to "Back", :groups %> <%= link_to 'Edit', edit_group_path(@group) %>

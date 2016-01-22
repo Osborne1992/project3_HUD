@@ -43,9 +43,17 @@ Third Place receives: <%= @tournament.third_prize %>
 <%= @tournament.description %>
 <br>
 <br>
-<%= link_to "Post a comment", new_comment_path %>
+<%= form_for([@tournament, @tournament.comments.new]) do |f| %>
+  <%= f.text_area :body %>
+<%= f.submit 'Post'  %>
 <br>
-comments go here
+<small><%= link_to "cancel", :back %></small> 
+
+<% end %>
+<br>
+<% @tournament.last_ten_comments.each do |comment| %>
+  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<% end %>
 <br>
 <br>
 <%= link_to "Back", :tournaments %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>

@@ -3,11 +3,12 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, 
   :validatable
   
-  has_many :comments
+  has_many :comments, as: :commentable
   has_many :reviews
   has_many :created_groups, class_name: 'Group', foreign_key: :creator_id
   has_many :created_events, class_name: 'Event', foreign_key: :creator_id
   has_many :created_tournaments, class_name: 'Tournament', foreign_key: :creator_id
+  has_many :created_comments, class_name: 'Comment', foreign_key: :creator_id
 
   has_many :group_users
   has_many :event_users
@@ -67,6 +68,10 @@ class User < ActiveRecord::Base
 
   def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s
+  end
+
+  def last_ten_comments
+    comments.order(:created_at).reverse_order.limit(10)
   end
 
 

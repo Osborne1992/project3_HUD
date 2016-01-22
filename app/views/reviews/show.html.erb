@@ -80,9 +80,17 @@ This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
 <% end %>
 <br>
 <br>
-<%= link_to "Post a comment", new_comment_path %>
+<%= form_for([@review, @review.comments.new]) do |f| %>
+  <%= f.text_area :body %>
+<%= f.submit 'Post'  %>
 <br>
-review comments go here!
+<small><%= link_to "cancel", :back %></small> 
+
+<% end %>
+<br>
+<% @review.last_ten_comments.each do |comment| %>
+  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<% end %>
 <br>
 <br>
 <%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>

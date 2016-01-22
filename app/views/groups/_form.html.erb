@@ -7,10 +7,17 @@
   <%= f.check_box :private %>
 <br>
 <br>
-<center>
-<%= f.submit button_text  %>
+  <%= f.label :description, 'Group Description:' %>
+  <br>
+  <%= f.text_area :description %>
 <br>
-<small><%= link_to "cancel", :back %></small>
+<br>
+<center>
+  <%= f.submit button_text  %>
+  <br>
+  <small>
+    <%= link_to "cancel", :back %>
+  </small>
 </center>
 
 <% end %>

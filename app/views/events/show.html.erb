@@ -33,9 +33,17 @@ From <%= @event.start_date.strftime('%-d %b %Y') %> at <%= @event.start_time.str
 <%= @event.description %>
 <br>
 <br>
-<%= link_to "Post a comment", new_comment_path %>
+<%= form_for([@event, @event.comments.new]) do |f| %>
+  <%= f.text_area :body %>
+<%= f.submit 'Post'  %>
 <br>
-event comments go here
+<small><%= link_to "cancel", :back %></small> 
+
+<% end %>
+<br>
+<% @event.last_ten_comments.each do |comment| %>
+  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<% end %>
 <br>
 <br>
 <%= link_to "Back", :back %> <%= link_to 'Edit', edit_event_path(@event) %>
