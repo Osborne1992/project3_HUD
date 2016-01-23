@@ -71,15 +71,28 @@
 <table>
   <tr>
     <td>
-      Steam
+    <% if @user.steam_id == nil %>
+      Steam Username: <small><em>No Data Given</em></small>
+    <% else %>
+      Steam Username: <%= @user.steam_id %>
+    <% end %>
     </td>
     <td>
-      Origin
+    <% if @user.origin_id == nil %>
+      Origin Username: <small><em>No Data Given</em></small>
+    <% else %>
+      Origin Username: <%= @user.origin_id %>
+    <% end %>
     </td>
   </tr>
   <tr>
     <td>
-      <br>uPlay
+      <br>
+      <% if @user.uplay_id == nil %>
+      uPlay Username: <small><em>No Data Given</em></small>
+    <% else %>
+      uPlay Username: <%= @user.uplay_id %>
+    <% end %>
     </td>
     <td>
       <br>
@@ -87,15 +100,30 @@
   </tr>
   <tr>
     <td>
-      <br>Xbox
+      <br>
+      <% if @user.xbox_user == nil %>
+      Xbox Live Gamer Tag: <small><em>No Data Given</em></small>
+    <% else %>
+      Xbox Live Gamer Tag: <%= @user.xbox_user %>
+    <% end %>
     </td>
     <td>
-      <br>PSN
+      <br>
+      <% if @user.psn == nil %>
+      PlayStation Network ID: <small><em>No Data Given</em></small>
+    <% else %>
+      PlayStation Network ID: <%= @user.psn %>
+    <% end %>
     </td>
   </tr>
   <tr>
     <td>
-      <br>Nintendo
+      <br>
+      <% if @user.nnid == nil %>
+      Nintendo Network ID: <small><em>No Data Given</em></small>
+    <% else %>
+      Nintendo Network ID: <%= @user.nnid %>
+    <% end %>
     </td>
     <td>
       <br>
@@ -126,13 +154,22 @@
 </ul>
 <br>
 <br>
-<%= form_for([@user, @user.comments.new]) do |f| %>
-  <%= f.text_area :body %>
-<%= f.submit 'Post' %>
-<br>
-<small><%= link_to "cancel", :back %></small> 
+<%#= form_for(@post) do |f| %>
+  <%#= f.text_area :body %>
+<%#= f.submit 'Post' %>
+<%# end %>
+<%# @user.posts.each do |post| %>
+<!--   <%#= post.creator.try :username %> - <%#= post.body %> <br> -->
+  <%= form_for([@user, @user.comments.new]) do |f| %>
+    <%= f.text_area :body %>
+    <%= f.submit 'Post' %>
+    <br>
+    <small>
+      <%= link_to "cancel", :back %>
+    </small> 
+  <% end %>
+<%# end %>
 
-<% end %>
 <br>
 <% @user.last_ten_comments.each do |comment| %>
   <%= comment.creator.try :username %> - <%= comment.body %> <br>
