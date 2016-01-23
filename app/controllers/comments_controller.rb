@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     @comment.creator = current_user
     if @comment.save
-      flash[:notice] = "Successfully saved comment."
       redirect_to @commentable
     else
       render 'new'

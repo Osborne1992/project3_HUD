@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122111336) do
+ActiveRecord::Schema.define(version: 20160123132300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -140,6 +149,25 @@ ActiveRecord::Schema.define(version: 20160122111336) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_images", force: :cascade do |t|
+    t.integer  "post_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "post_images", ["post_id"], name: "index_post_images_on_post_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "creator_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "private_messages", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -233,12 +261,15 @@ ActiveRecord::Schema.define(version: 20160122111336) do
     t.string   "psn"
     t.string   "nnid"
     t.string   "role"
+    t.string   "location"
+    t.string   "profile_image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "albums", "users"
   add_foreign_key "event_tournaments", "events"
   add_foreign_key "event_tournaments", "tournaments"
   add_foreign_key "event_users", "events"
@@ -252,6 +283,8 @@ ActiveRecord::Schema.define(version: 20160122111336) do
   add_foreign_key "group_users", "users"
   add_foreign_key "platform_users", "platforms"
   add_foreign_key "platform_users", "users"
+  add_foreign_key "post_images", "posts"
+  add_foreign_key "posts", "users"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "platforms"
   add_foreign_key "reviews", "users"
