@@ -28,8 +28,9 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
   has_many :inverse_friends, through: :inverse_friendships, :source => :user
 
-
   has_and_belongs_to_many :private_messages
+
+  mount_uploader :profile_image, ProfileImageUploader
 
   def private_messages
     PrivateMessage.where("private_messages.sender_id = :id OR private_messages.recipient_id = :id", id: id).order(:created_at)

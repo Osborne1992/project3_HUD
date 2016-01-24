@@ -7,24 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="cover-top-bar">
-    
-  </div>
+  <div class="cover-top-bar"></div>
   <div class="container">
     <nav class="top-bar">
       <div class="box box-1"></div>
       <div class="box box-2">
         <%= link_to image_tag("/images/small_hud.png"), root_path, class: "center-hud" %>
       </div>
-      <div class="box box-6">
-        
+      <div class="box box-6 higher-search-bar">
+        <input class="search-bar">
+        <button class="search-go">GO!</button>
       </div>
       <div class="box box-3">
-        
+          <%= image_tag current_user.profile_image.layout_cog.url, class: "profile-image" %>
       </div>
     </nav>
     <br>
-    <nav>
+    <nav><center>
       <ul>
         <li>
           <%= link_to "Events", events_path %>
@@ -69,7 +68,7 @@
         </li>
         <% end %>
       </ul>
-    </nav>
+    </center></nav>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
