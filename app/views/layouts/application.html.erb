@@ -12,14 +12,12 @@
   </div>
   <div class="container">
     <nav class="top-bar">
-      <div class="box box-3">
+      <div class="box box-1"></div>
+      <div class="box box-2">
         <%= link_to image_tag("/images/small_hud.png"), root_path, class: "center-hud" %>
       </div>
       <div class="box box-6">
-        <%= form_tag result_index_path, method: :get do %>
-          <%= text_field_tag :query, params[:query] %>
-          <%= submit_tag "GO", name: nil %>
-        <% end %>
+        
       </div>
       <div class="box box-3">
         
