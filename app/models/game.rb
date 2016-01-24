@@ -1,4 +1,7 @@
 class Game < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:genre, :name, :publisher, :developer]
+
   has_many :reviews
   has_many :tournaments
 

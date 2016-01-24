@@ -1,4 +1,7 @@
 class Review < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :body, :game_id]
+
   belongs_to :game
   belongs_to :user
   belongs_to :platform
