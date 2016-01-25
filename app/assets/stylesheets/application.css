@@ -585,14 +585,14 @@ dropdown input:checked ~ ul{
 
 .cover-top-bar {
   background: #3E8EC9;
-  height: 85px;
+  height: 80px;
 }
 
 .navlinks {
   list-style-type: none;
   padding-left: 0;
   position: absolute;
-  bottom: -18px;
+  bottom: -13px;
 }
 
 .navlinks li {
@@ -620,7 +620,7 @@ dropdown input:checked ~ ul{
 
 .top-bar {
   width: 1080px;
-  height: 85px;
+  height: 80px;
   top: -10px;
   margin: 0 auto;
 }
@@ -671,7 +671,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 85px;
+  top: 80px;
  }
 
  /*END EVENT
@@ -691,7 +691,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 85px;
+  top: 80px;
  }
 
  /*END GAME
@@ -705,7 +705,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 85px;
+  top: 80px;
  }
 
  /*END GROUP
@@ -725,7 +725,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 85px;
+  top: 80px;
  }
 
  /*END PLATFORM
@@ -745,7 +745,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 85px;
+  top: 80px;
  }
 
  .rating {
@@ -788,7 +788,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 85px;
+  top: 80px;
  }
 
  /*END TOURNAMENT
@@ -796,6 +796,19 @@ dropdown input:checked ~ ul{
  
 
  /*START USER*/
+
+ .profile-wrap {
+  width: 75%;
+  margin: 0 auto;
+ }
+
+ .edit-profile-button  {
+  padding: 10px 5px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 80px;
+ }
 
  .friend-request li {
   list-style-type: none;

@@ -8,7 +8,7 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   end
 
   version :profile_page do
-    process :reize_to_fit => [400, 400]
+    process :resize_to_fit => [300, 300]
   end
 
   # Include RMagick or MiniMagick support:
@@ -31,7 +31,7 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   # "/images/fallback/" + [layout_cog, "default.png"].compact.join('_')
-  ["small-default-user-image.png"].compact.join('_')
+  # ["small-default-user-image.png"].compact.join('_')
 
   end
 

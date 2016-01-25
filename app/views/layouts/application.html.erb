@@ -51,7 +51,11 @@
           <input id="toggle2" type="checkbox">
           <label for="toggle2" class="animate">
             <% if user_signed_in? %>
-            <%= image_tag(current_user.profile_image.layout_cog.url) %> <%= current_user.username %>
+            <% if current_user.profile_image == nil %>
+            <%= link_to image_tag("/images/small-default-user-image.png"), user_path(current_user) %>
+            <% else %>
+            <%= link_to image_tag(current_user.profile_image.layout_cog.url), user_path(current_user) %> <%= current_user.username %>
+            <% end %>
             <i class="fa fa-bars float-right"></i></label>
             <ul class="animate wl">
               <li class="animate"><%= link_to "Profile", user_path(current_user) %><i class="fa fa-code float-right"></i></li>
