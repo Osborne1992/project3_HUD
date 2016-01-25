@@ -10,7 +10,7 @@ gem 'rmagick'
 gem 'jquery-turbolinks'
 
 # gem 'friendly_id'
-gem 'pg_search'
+# gem 'pg_search'
 
 gem 'dotenv-rails', groups: [:development, :test]
 

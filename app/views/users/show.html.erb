@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td>
-      image
+    <%= link_to image_tag(current_user.profile_image.layout_cog.url), user_path(current_user) %>
     </td>
     <td>
       <%= @user.username %>
