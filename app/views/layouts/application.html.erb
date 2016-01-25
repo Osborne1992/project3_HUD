@@ -17,76 +17,75 @@
       <div class="box box-6 higher-search-bar">
         <input class="search-bar" placeholder="search hud...">
         <button class="search-go">GO!</button>
+        <br>
+        <br>
+        <% if user_signed_in? %>
+        <ul class="navlinks">
+          <li>
+            <%= link_to "Events", events_path %>
+          </li>
+          <li>
+            <%= link_to "Games", games_path %>
+          </li>
+          <li>
+            <%= link_to "Groups", groups_path %>
+          </li>
+          <li>
+            <%= link_to "Platforms", platforms_path %>
+          </li>
+          <li>
+            <%= link_to "Reviews", reviews_path %>
+          </li>
+          <li>
+            <%= link_to "Tournaments", tournaments_path %>
+          </li>
+          <li>
+            <%= link_to "Users", users_path %>
+          </li>
+        </ul>
+        <% else %>
+        <% end %>
       </div>
       <div class="box box-2 profile-circle">
         <dropdown>
-          <input id="toggle1" type="checkbox" checked>
-          <label for="toggle1" class="animate">
+          <input id="toggle2" type="checkbox">
+          <label for="toggle2" class="animate">
             <% if user_signed_in? %>
-            <%= link_to image_tag(current_user.profile_image.layout_cog.url), user_path(current_user) %>
-            <% else %>
-            <%= link_to image_tag("/images/small-default-user-image.png"), new_user_registration_path %>
-            <% end %>
+            <%= image_tag(current_user.profile_image.layout_cog.url) %> <%= current_user.username %>
             <i class="fa fa-bars float-right"></i></label>
-              <ul class="animate">
-                <li class="animate">Code<i class="fa fa-code float-right"></i></li>
-                <li class="animate">Zoom<i class="fa fa-arrows-alt float-right"></i></li>
-                <li class="animate">Settings<i class="fa fa-cog float-right"></i></li>
-              </ul>
-            </dropdown>
-          </div>
-          <div class="box box-1">
-          </div>
-        </nav>
-      </div>
-      <br>
-      <div class="container">
-
-        <nav><center>
-          <ul>
-            <li>
-              <%= link_to "Events", events_path %>
-            </li>
-            <li>
-              <%= link_to "Friendships", friendships_path %>
-            </li>
-            <li>
-              <%= link_to "Games", games_path %>
-            </li>
-            <li>
-              <%= link_to "Groups", groups_path %>
-            </li>
-            <li>
-              <%= link_to "Platforms", platforms_path %>
-            </li>
-            <li>
-              <%= link_to "Private Messages", private_messages_path %>
-            </li>
-            <li>
-              <%= link_to "Reviews", reviews_path %>
-            </li>
-            <li>
-              <%= link_to "Tournaments", tournaments_path %>
-            </li>
-            <li>
-              <%= link_to "Users", users_path %>
-            </li>
-            <% if user_signed_in? %>
-            <li>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-            </li>
+            <ul class="animate wl">
+              <li class="animate"><%= link_to "Profile", user_path(current_user) %><i class="fa fa-code float-right"></i></li>
+              <li class="animate"><%= link_to "Inbox", private_messages_path %><i class="fa fa-arrows-alt float-right"></i></li>
+              <li class="animate"><%= link_to "Edit Profile", edit_user_registration_path %><i class="fa fa-cog float-right"></i></li>
+              <li class="animate"><%= link_to "Log out", destroy_user_session_path, method: :delete %><i class="fa fa-cog float-right"></i></li>
+            </ul>
             <% else %>
-            <li>
-              <%= link_to "Sign In", new_user_session_path %>
-            </li>
+            <%= image_tag("/images/small-default-user-image.png") %><i class="fa fa-bars float-right"></i></label>
+            <ul class="animate wl">
+              <li class="animate">
+                <%= link_to "Sign In", new_user_session_path %>
+                <i class="fa fa-code float-right"></i>
+              </li>
+              <li class="animate">
+                <%= link_to "Sign Up", new_user_registration_path %>
+                <i class="fa fa-cog float-right"></i>
+              </li>
+            </ul>
             <% end %>
-          </ul>
-        </center></nav>
+          </dropdown>
+        </div>
+        <div class="box box-1">
+        </div>
+      </nav>
+    </div>
+    <br>
+    <div class="container">
 
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-        <%= yield %>
-      </div>
-    </body>
-    </html>
+      <%= yield %>
+
+    </div>
+  </body>
+  </html>

@@ -132,9 +132,8 @@
 </table>
 <br>
 <br>
-<h2>
-  Friends
-</h2>
+
+<h2>Friends</h2>
 <ul>
   <% for friendship in @user.friendships %>
     <li>
@@ -143,23 +142,17 @@
     </li>
   <% end %>
 </ul>
-<p>
-  <%= link_to "Find Friends", users_path %>
-</p>
-<h2>Friend Requests</h2>
-<ul>
+
+<p><%= link_to "Find Friends", users_path %></p>
+
+<h2>Friended by Users</h2>
+<ul class="friend-request">
   <% for user in @user.inverse_friends %>
     <li><%=h user.username %></li>
   <% end %>
 </ul>
 <br>
 <br>
-<%#= form_for(@post) do |f| %>
-  <%#= f.text_area :body %>
-<%#= f.submit 'Post' %>
-<%# end %>
-<%# @user.posts.each do |post| %>
-<!--   <%#= post.creator.try :username %> - <%#= post.body %> <br> -->
   <%= form_for([@user, @user.comments.new]) do |f| %>
     <%= f.text_area :body %>
     <%= f.submit 'Post' %>

@@ -65,8 +65,6 @@ class User < ActiveRecord::Base
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_hash).first
     end
-    conditions[:email].downcase! if conditions[:email]
-    where(conditions.to_h).first
   end
 
   def role?(role_to_compare)

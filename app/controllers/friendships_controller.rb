@@ -25,3 +25,9 @@ class FriendshipsController < ApplicationController
   end
 
 end
+
+if @comment.save
+  redirect_to @commentable
+else
+  render 'new'
+end

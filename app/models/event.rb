@@ -1,6 +1,4 @@
 class Event < ActiveRecord::Base
-  include PgSearch
-  multisearchable :against => [:name, :host, :location]
 
   belongs_to :creator, class_name: 'User'
 

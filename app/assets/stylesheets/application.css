@@ -500,22 +500,113 @@
 
  /*START LAYOUT*/
 
+ *{
+   padding: 0;
+   margin: 0;
+   font-family: 'Lato', sans-serif;
+   box-sizing: border-box;
+ }
+ 
+ .float-right{
+   float: right;
+ }
+ 
+ .fa{
+  font-size: .8em;
+   line-height: 22px !important;
+ }
+ 
+ dropdown{
+    display: inline-block;
+ }
+ 
+ dropdown label, dropdown ul li{
+   display: block;
+   width: 200px;
+   background: #3E8EC9;
+   padding: 10px 15px;
+ }
+ 
+ dropdown label:hover, dropdown ul li:hover{
+   background: #FFFFFF;
+   color: #3E8EC9;
+   cursor: pointer;
+ }
+ 
+ dropdown label{
+   color: #FFFFFF;
+   position: relative;
+   z-index: 2;
+ }
+ 
+ dropdown input{
+   display: none;
+ }
+ 
+ dropdown input ~ ul{
+   position: relative;
+   visibility: hidden;
+   opacity: 0;
+   z-index: 1;
+   color: white;
+ }
+
+ dropdown input:checked + label{
+   background: #3E8EC9;
+   color: white;
+ }
+
+ dropdown input:checked ~ ul{
+   visibility: visible;
+   opacity: 1;
+   top: 0;
+ }
+
+ .wl a {
+  text-decoration: none;
+  color: black;
+ }
+ 
+ .animate{
+   -webkit-transition: all .3s;
+   -moz-transition: all .3s;
+   -ms-transition: all .3s;
+   -ms-transition: all .3s;
+   transition: all .3s;  
+   backface-visibility:hidden;
+   -webkit-backface-visibility:hidden; /* Chrome and Safari */
+   -moz-backface-visibility:hidden; /* Firefox */
+   -ms-backface-visibility:hidden; /* Internet Explorer */
+ }
+
   .cover-top-bar {
     background: #3E8EC9;
-    height: 61px;
+    height: 85px;
   }
 
-  ul {
+  .navlinks {
     list-style-type: none;
     padding-left: 0;
+    position: absolute;
+    bottom: -18px;
   }
 
-  li {
-    background-color: rgba(255,255,255,0.75);
-    padding: 2px;
+  .navlinks li {
+    padding: 5px;
     display: inline;
-    color: black;
-    border: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    border-bottom: none;
+  }
+
+  .navlinks a {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+
+  .navlinks li:hover, a:hover {
+    background: #FFFFFF;
+    color: #3E8EC9;
   }
 
   .container {
@@ -525,8 +616,8 @@
 
   .top-bar {
     width: 1080px;
-    height: 61px;
-    top: 0;
+    height: 85px;
+    top: -10px;
     margin: 0 auto;
   }
 
@@ -538,13 +629,15 @@
   .search-bar {
     border: none;
     width: 400px;
-    height: 23px;
+    height: 24px;
   }
 
   .search-go {
     border: 1px solid #FFFFFF;
     color: #FFFFFF;
     position: absolute;
+    padding: 2px;
+    right: 205px;
   }
 
   .profile-circle {
@@ -568,18 +661,6 @@
     ========================================================================== */
 
 
- /*START EVENT TOURNAMENT*/
-
- /*END EVENT TOURNAMENT
-    ========================================================================== */
-
-
- /*START EVENT USER*/
-
- /*END EVENT USER
-    ========================================================================== */
-
-
  /*START FRIENDSHIP*/
 
  /*END FRIENDSHIP
@@ -589,24 +670,6 @@
  /*START GAME*/
 
  /*END GAME
-    ========================================================================== */
-
-
- /*START GAME PLATFORM*/
-
- /*END GAME PLATFORM
-    ========================================================================== */
-
-
- /*START GAME TOURNAMENT*/
-
- /*END GAME TOURNAMENT
-    ========================================================================== */
-
-
- /*START GAME USER*/
-
- /*END GAME USER
     ========================================================================== */
 
 
@@ -625,12 +688,6 @@
  /*START PLATFORM*/
 
  /*END PLATFORM
-    ========================================================================== */
- 
-
- /*START PLATFORM USER*/
-
- /*END PLATFORM USER
     ========================================================================== */
  
 
@@ -681,13 +738,11 @@
     ========================================================================== */
  
 
- /*START TOURNAMENT USER*/
-
- /*END TOURNAMENT USER
-    ========================================================================== */
- 
-
  /*START USER*/
+
+ .friend-request li {
+  list-style-type: none;
+ }
 
  /*END USER
     ========================================================================== */

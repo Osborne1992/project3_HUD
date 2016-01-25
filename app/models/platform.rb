@@ -1,6 +1,4 @@
 class Platform < ActiveRecord::Base
-  include PgSearch
-  multisearchable :against => [:name, :owner]
 
   has_many :reviews
   has_many :tournaments
