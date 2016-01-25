@@ -9,6 +9,12 @@
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
   <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <br>
+  <%= f.label :profile_image %>
+  <%= f.file_field :profile_image %>
+  <br>
   <%= f.label :platform_ids, "Platforms:" %>
   <%= f.collection_check_boxes :platform_ids, Platform.all, :id, :name %>
   <br>

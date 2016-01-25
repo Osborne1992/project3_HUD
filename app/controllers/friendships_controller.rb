@@ -3,7 +3,6 @@ class FriendshipsController < ApplicationController
   load_and_authorize_resource
 
   def index
-
   end
 
   def create
@@ -24,10 +23,4 @@ class FriendshipsController < ApplicationController
     redirect_to current_user
   end
 
-end
-
-if @comment.save
-  redirect_to @commentable
-else
-  render 'new'
 end

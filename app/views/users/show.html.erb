@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td>
-    <%= link_to image_tag(current_user.profile_image.layout_cog.url), user_path(current_user) %>
+    <%= image_tag(current_user.profile_image.profile_page.url) %>
     </td>
     <td>
       <%= @user.username %>
@@ -11,78 +11,90 @@
   </tr>
   <tr>
     <% if @user.first_name == nil %>
-      <td>
-        <br>
-        <em>
-          <small>
-            no name data
-          </small>
-        </em>
-      </td>
+    <td>
+      <br>
+      <em>
+        <small>
+          no name data
+        </small>
+      </em>
+    </td>
     <% else %>
-      <td>
-        <br>
-        <%= @user.first_name %>
-      </td>
+    <td>
+      <br>
+      <%= @user.first_name %>
+    </td>
     <% end %>
     <% if @user.last_name == nil %>
-      <td>
-        <br>
-        <em>
-          <small>
-            no name data
-          </small>
-        </em>
-      </td>
+    <td>
+      <br>
+      <em>
+        <small>
+          no name data
+        </small>
+      </em>
+    </td>
     <% else %>
-      <td>
-        <br>
-        <%= @user.last_name %>
-      </td>
+    <td>
+      <br>
+      <%= @user.last_name %>
+    </td>
     <% end %>
   </tr>
 </table>
 <br>
 <br>
-<table>
-  <tr>
-    <th>
-      Platforms Owned
-    </th>
-    <th>
-      Games Owned
-    </th>
-  </tr>
-  <% @user.platforms.each do |platform| %>
-  <% @user.games.each do |game| %>
-  <tr>
-    <td>
-      <%= platform.name %>
-    </td>
-    <td>
-      <%= game.name %>
-    </td>
-  </tr>
-  <% end %>
-  <% end %>
-</table>
+<div class="owned-item-list">
+  <div id="listContainer">
+    <ul id="expList">
+      <div class="left-column-OIL">
+        <li>
+          Owned Platforms ▼
+          <ul>
+            <% @user.platforms.each do |platform| %>
+            <li>
+              <span>
+                <%= platform.name %>
+              </span>
+            </li>
+            <% end %>
+          </ul>
+        </li>
+      </div>
+      <div class="right-column-OIL">
+        <li>
+          Owned Games ▼
+          <ul>
+            <% @user.games.each do |game| %>
+            <li>
+              <span>
+                <%= game.name %>
+              </span>
+            </li>
+            <% end %>
+          </ul>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
 <br>
 <br>
 <table>
   <tr>
     <td>
-    <% if @user.steam_id == nil %>
+      <% if @user.steam_id == nil %>
       Steam Username: <small><em>No Data Given</em></small>
-    <% else %>
+      <% else %>
       Steam Username: <%= @user.steam_id %>
-    <% end %>
+      <% end %>
     </td>
     <td>
-    <% if @user.origin_id == nil %>
+      <% if @user.origin_id == nil %>
       Origin Username: <small><em>No Data Given</em></small>
-    <% else %>
+      <% else %>
       Origin Username: <%= @user.origin_id %>
-    <% end %>
+      <% end %>
     </td>
   </tr>
   <tr>
@@ -90,9 +102,9 @@
       <br>
       <% if @user.uplay_id == nil %>
       uPlay Username: <small><em>No Data Given</em></small>
-    <% else %>
+      <% else %>
       uPlay Username: <%= @user.uplay_id %>
-    <% end %>
+      <% end %>
     </td>
     <td>
       <br>
@@ -103,17 +115,17 @@
       <br>
       <% if @user.xbox_user == nil %>
       Xbox Live Gamer Tag: <small><em>No Data Given</em></small>
-    <% else %>
+      <% else %>
       Xbox Live Gamer Tag: <%= @user.xbox_user %>
-    <% end %>
+      <% end %>
     </td>
     <td>
       <br>
       <% if @user.psn == nil %>
       PlayStation Network ID: <small><em>No Data Given</em></small>
-    <% else %>
+      <% else %>
       PlayStation Network ID: <%= @user.psn %>
-    <% end %>
+      <% end %>
     </td>
   </tr>
   <tr>
@@ -121,9 +133,9 @@
       <br>
       <% if @user.nnid == nil %>
       Nintendo Network ID: <small><em>No Data Given</em></small>
-    <% else %>
+      <% else %>
       Nintendo Network ID: <%= @user.nnid %>
-    <% end %>
+      <% end %>
     </td>
     <td>
       <br>
@@ -136,10 +148,10 @@
 <h2>Friends</h2>
 <ul>
   <% for friendship in @user.friendships %>
-    <li>
-      <%=h friendship.friend.username %>
-      (<%= link_to "remove", friendship, :method => :delete %>)
-    </li>
+  <li>
+    <%=h friendship.friend.username %>
+    (<%= link_to "remove", friendship, :method => :delete %>)
+  </li>
   <% end %>
 </ul>
 
@@ -148,24 +160,24 @@
 <h2>Friended by Users</h2>
 <ul class="friend-request">
   <% for user in @user.inverse_friends %>
-    <li><%=h user.username %></li>
+  <li><%=h user.username %></li>
   <% end %>
 </ul>
 <br>
 <br>
-  <%= form_for([@user, @user.comments.new]) do |f| %>
-    <%= f.text_area :body %>
-    <%= f.submit 'Post' %>
-    <br>
-    <small>
-      <%= link_to "cancel", :back %>
-    </small> 
-  <% end %>
+<%= form_for([@user, @user.comments.new]) do |f| %>
+<%= f.text_area :body %>
+<%= f.submit 'Post' %>
+<br>
+<small>
+  <%= link_to "cancel", :back %>
+</small> 
+<% end %>
 <%# end %>
 
 <br>
 <% @user.last_ten_comments.each do |comment| %>
-  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<%= comment.creator.try :username %> - <%= comment.body %> <br>
 <% end %>
 <br>
 <br>

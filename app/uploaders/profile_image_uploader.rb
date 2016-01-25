@@ -1,9 +1,14 @@
 # encoding: utf-8
 
 class ProfileImageUploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
 
   version :layout_cog do
     process :resize_to_fill => [55, 55]
+  end
+
+  version :profile_page do
+    process :reize_to_fit => [400, 400]
   end
 
   # Include RMagick or MiniMagick support:
@@ -11,7 +16,7 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
