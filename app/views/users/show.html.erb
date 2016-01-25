@@ -4,7 +4,11 @@
   <table>
     <tr>
       <td>
-      <%= image_tag(@user.profile_image.profile_page.url) %>
+      <% if @user.profile_image == nil %>
+        <%= image_tag("/images/default-user-image.png").profile_page %>
+      <% else %>
+        <%= image_tag(@user.profile_image.profile_page.url) %>
+      <% end %>
       </td>
       <td>
         <%= @user.username %>

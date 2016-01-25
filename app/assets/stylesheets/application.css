@@ -585,14 +585,14 @@ dropdown input:checked ~ ul{
 
 .cover-top-bar {
   background: #3E8EC9;
-  height: 80px;
+  height: 85px;
 }
 
 .navlinks {
   list-style-type: none;
   padding-left: 0;
   position: absolute;
-  bottom: -13px;
+  bottom: -18px;
 }
 
 .navlinks li {
@@ -620,7 +620,7 @@ dropdown input:checked ~ ul{
 
 .top-bar {
   width: 1080px;
-  height: 80px;
+  height: 85px;
   top: -10px;
   margin: 0 auto;
 }
@@ -654,11 +654,43 @@ dropdown input:checked ~ ul{
   right: 75px;
 }
 
+.hud-logo-nav:hover {
+  background:none;
+}
+
  /*END LAYOUT
  ========================================================================== */
 
 
  /*START HOME*/
+
+ .home-sign-buttons {
+  position: absolute;
+  top: 300px;
+  left: 525px;
+ }
+
+ .home-sign-up {
+  background: #3E8EC9;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+ }
+
+ .home-sign-up:hover {
+  background: #327DB3;
+ }
+
+ .home-sign-in {
+  background: #3E8EC9;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+ }
+
+ .home-sign-up:hover {
+  background: #327DB3;
+ }
 
  /*END HOME
  ========================================================================== */
@@ -671,7 +703,11 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
+ }
+
+ .new-event-button:hover {
+  background: #327DB3;
  }
 
  /*END EVENT
@@ -691,7 +727,11 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
+ }
+
+ .new-game-button:hover {
+  background: #327DB3;
  }
 
  /*END GAME
@@ -705,7 +745,11 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
+ }
+
+ .new-group-button:hover {
+  background: #327DB3;
  }
 
  /*END GROUP
@@ -725,7 +769,11 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
+ }
+
+ .new-platform-button:hover {
+  background: #327DB3;
  }
 
  /*END PLATFORM
@@ -745,7 +793,11 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
+ }
+
+ .new-review-button:hover {
+  background: #327DB3;
  }
 
  .rating {
@@ -788,7 +840,11 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
+ }
+
+ .new-tournament-button:hover {
+  background: #327DB3;
  }
 
  /*END TOURNAMENT
@@ -807,7 +863,7 @@ dropdown input:checked ~ ul{
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
-  top: 80px;
+  top: 85px;
  }
 
  .friend-request li {

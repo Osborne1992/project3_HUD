@@ -1,0 +1,17 @@
+<div class="profile-wrap">
+<br>
+<% if user_signed_in? %>
+  <%= render partial: "reviews/review", collection: @reviews %>
+<% else %>
+  <center>
+    <h2>
+      Sign up to HUD to take part in Review Writing, Socialising and being AWESOME!
+    </h2>
+  </center>
+</div>
+
+<div class="home-sign-buttons">
+  <%= link_to "Sign Up", new_user_registration_path, class: "home-sign-up" %>
+  <%= link_to "Sign In", new_user_session_path, class: "home-sign-in" %>
+</div>
+<% end %>
