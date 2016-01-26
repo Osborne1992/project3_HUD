@@ -1,96 +1,98 @@
-<small>
-  <%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>
-</small>
+  <small>
+  <%= link_to "Back", :reviews, class: "back-button" %> <%= link_to 'Edit', edit_review_path(@review), class: "edit-review-button" %>
+  </small>
 
-<h2>
-  <% (1..(@review.rate_average)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_average)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<%= @review.title %>
-</h2>
-<h4>
-  by <%= @review.user.try(:username) %>
-</h4>
+<div class="profile-wrap">
+  <h2>
+    <% (1..(@review.rate_average)).each do  %>
+    <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+    <% end %>
+    <% (1..(5 - @review.rate_average)).each do  %>
+    <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+    <% end %>
+    <%= @review.title %>
+  </h2>
+  <h4>
+    by <%= @review.user.try(:username) %>
+  </h4>
 
-<br>
-This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
-<br>
-<br>
-<%= @review.body %>
-<br>
-<br>
-<strong>Story: </strong>
-<% (1..(@review.rate_story)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_story)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Difficulty: </strong>
-<% (1..(@review.rate_difficulty)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_difficulty)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Length: </strong>
-<% (1..(@review.rate_length)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_length)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Mechanics: </strong>
-<% (1..(@review.rate_mechanics)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_mechanics)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Audio: </strong>
-<% (1..(@review.rate_audio)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_audio)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Performance: </strong>
-<% (1..(@review.rate_performance)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_performance)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Art Style: </strong>
-<% (1..(@review.rate_art_style)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_art_style)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<strong>Immersion: </strong>
-<% (1..(@review.rate_immersion)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
-<% end %>
-<% (1..(5 - @review.rate_immersion)).each do  %>
-<%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
-<% end %>
-<br>
-<br>
-<%= form_for([@review, @review.comments.new]) do |f| %>
+  <br>
+  This review is for <%= @review.game.name %> on the <%= @review.platform.name %>
+  <br>
+  <br>
+  <%= @review.body %>
+  <br>
+  <br>
+  <strong>Story: </strong>
+  <% (1..(@review.rate_story)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_story)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Difficulty: </strong>
+  <% (1..(@review.rate_difficulty)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_difficulty)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Length: </strong>
+  <% (1..(@review.rate_length)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_length)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Mechanics: </strong>
+  <% (1..(@review.rate_mechanics)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_mechanics)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Audio: </strong>
+  <% (1..(@review.rate_audio)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_audio)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Performance: </strong>
+  <% (1..(@review.rate_performance)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_performance)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Art Style: </strong>
+  <% (1..(@review.rate_art_style)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_art_style)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <strong>Immersion: </strong>
+  <% (1..(@review.rate_immersion)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/R2CuT5tfe09UFZq/twostars%20-%20solo%20full.png' %>
+  <% end %>
+  <% (1..(5 - @review.rate_immersion)).each do  %>
+  <%= image_tag 'https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/CNHbLD4LjJuoFQz/twostars%20-%20solo%20empty.png' %>
+  <% end %>
+  <br>
+  <br>
+  <%= form_for([@review, @review.comments.new]) do |f| %>
   <%= f.text_area :body %>
-<%= f.submit 'Post'  %>
-<br>
-<small><%= link_to "cancel", :back %></small> 
+  <%= f.submit 'Post'  %>
+  <br>
+  <small><%= link_to "cancel", :back %></small> 
 
-<% end %>
-<br>
-<% @review.last_ten_comments.each do |comment| %>
+  <% end %>
+  <br>
+  <% @review.last_ten_comments.each do |comment| %>
   <%= comment.creator.try :username %> - <%= comment.body %> <br>
-<% end %>
-<br>
-<br>
-<%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>
+  <% end %>
+  <br>
+  <br>
+  <%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>
+</div>

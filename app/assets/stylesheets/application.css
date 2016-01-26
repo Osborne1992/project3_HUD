@@ -668,29 +668,29 @@ dropdown input:checked ~ ul{
   position: absolute;
   top: 300px;
   left: 525px;
- }
+}
 
- .home-sign-up {
+.home-sign-up {
   background: #3E8EC9;
   color: white;
   font-size: 20px;
   padding: 20px;
- }
+}
 
- .home-sign-up:hover {
+.home-sign-up:hover {
   background: #327DB3;
- }
+}
 
- .home-sign-in {
+.home-sign-in {
   background: #3E8EC9;
   color: white;
   font-size: 20px;
   padding: 20px;
- }
+}
 
- .home-sign-up:hover {
+.home-sign-up:hover {
   background: #327DB3;
- }
+}
 
  /*END HOME
  ========================================================================== */
@@ -699,16 +699,16 @@ dropdown input:checked ~ ul{
  /*START EVENT*/
 
  .new-event-button  {
-  padding: 10px 5px;
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .new-event-button:hover {
+.new-event-button:hover {
   background: #327DB3;
- }
+}
 
  /*END EVENT
  ========================================================================== */
@@ -723,16 +723,16 @@ dropdown input:checked ~ ul{
  /*START GAME*/
 
  .new-game-button  {
-  padding: 10px 5px;
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .new-game-button:hover {
+.new-game-button:hover {
   background: #327DB3;
- }
+}
 
  /*END GAME
  ========================================================================== */
@@ -741,16 +741,16 @@ dropdown input:checked ~ ul{
  /*START GROUP*/
 
  .new-group-button  {
-  padding: 10px 5px;
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .new-group-button:hover {
+.new-group-button:hover {
   background: #327DB3;
- }
+}
 
  /*END GROUP
  ========================================================================== */
@@ -765,16 +765,16 @@ dropdown input:checked ~ ul{
  /*START PLATFORM*/
 
  .new-platform-button  {
-  padding: 10px 5px;
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .new-platform-button:hover {
+.new-platform-button:hover {
   background: #327DB3;
- }
+}
 
  /*END PLATFORM
  ========================================================================== */
@@ -789,18 +789,43 @@ dropdown input:checked ~ ul{
  /*START REVIEW*/
 
  .new-review-button  {
-  padding: 10px 5px;
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .new-review-button:hover {
+.new-review-button:hover {
   background: #327DB3;
- }
+}
 
- .rating {
+.back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.back-button:hover {
+  background: #327DB3;
+}
+
+.edit-review-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+  left: 148px;
+}
+
+.edit-review-button:hover {
+  background: #327DB3;
+}
+
+.rating {
   overflow: hidden;
   display: inline-block;
   font-size: 0;
@@ -836,16 +861,16 @@ dropdown input:checked ~ ul{
  /*START TOURNAMENT*/
 
  .new-tournament-button  {
-  padding: 10px 5px;
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .new-tournament-button:hover {
+.new-tournament-button:hover {
   background: #327DB3;
- }
+}
 
  /*END TOURNAMENT
  ========================================================================== */
@@ -856,43 +881,84 @@ dropdown input:checked ~ ul{
  .profile-wrap {
   width: 75%;
   margin: 0 auto;
- }
+}
 
- .edit-profile-button  {
-  padding: 10px 5px;
+.edit-profile-button  {
+  padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
   position: absolute;
   top: 85px;
- }
+}
 
- .friend-request li {
+.edit-profile-button:hover {
+  background: #327DB3;
+}
+
+.user-details {
+  position: absolute;
+  top: 150px;
+}
+
+.friend-request li {
   list-style-type: none;
 }
 
 #listContainer{
   margin-top:15px;
 }
- 
+
 #expList ul, li {
-    list-style: none;
-    margin:0;
-    padding:0;
-    cursor: pointer;
+  list-style: none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
 }
 #expList p {
-    margin:0;
-    display:block;
+  margin:0;
+  display:block;
 }
 #expList p:hover {
-    background-color:#121212;
+  background-color:#121212;
 }
 #expList li {
-    line-height:140%;
-    text-indent:0px;
-    background-position: 1px 8px;
-    padding-left: 20px;
-    background-repeat: no-repeat;
+  line-height:140%;
+  text-indent:0px;
+  background-position: 1px 8px;
+  padding-left: 20px;
+  background-repeat: no-repeat;
+}
+
+.new-comment-box {
+  width: 400px;
+  height: 200px;
+  resize: none;
+  border: 1px solid #3E8EC9;
+}
+
+.post-new-comment {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: relative;
+  border: none;
+  bottom: 9px;
+  left: -56px;
+}
+
+.post-new-comment:hover {
+  background: #327DB3;
+}
+
+.user-comment-section {
+  border: 1px solid #3E8EC9;
+  padding: 10px;
+  width: 400px;
+}
+
+.comment-footer {
+  position: relative;
+  bottom: 0;
 }
 
  /*END USER

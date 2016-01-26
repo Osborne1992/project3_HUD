@@ -1,87 +1,47 @@
 <%#= render partial: "forshow" %>
 <%= link_to "Edit Profile", edit_user_registration_path, class: "edit-profile-button" %>
 <div class="profile-wrap">
-  <table>
-    <tr>
-      <td>
-      <% if @user.profile_image == nil %>
-        <%= image_tag("/images/default-user-image.png").profile_page %>
-      <% else %>
-        <%= image_tag(@user.profile_image.profile_page.url) %>
-      <% end %>
-      </td>
-      <td>
-        <%= @user.username %>
-      </td>
-    </tr>
-    <tr>
-      <% if @user.first_name == nil %>
-      <td>
-        <br>
-        <em>
-          <small>
-            no name data
-          </small>
-        </em>
-      </td>
-      <% else %>
-      <td>
-        <br>
-        <%= @user.first_name %>
-      </td>
-      <% end %>
-      <% if @user.last_name == nil %>
-      <td>
-        <br>
-        <em>
-          <small>
-            no name data
-          </small>
-        </em>
-      </td>
-      <% else %>
-      <td>
-        <br>
-        <%= @user.last_name %>
-      </td>
-      <% end %>
-    </tr>
-  </table>
+<div class="box box-5">
+  <% if @user.profile_image == nil %>
+  <%= image_tag("/image/default-user-image.png").profile_page %>
+  <% else %>
+  <%= image_tag(@user.profile_image.profile_page.url) %>
+  <% end %>
+  </div>
+  <div class="box box-6 user-details">
+  <h2>
+    <%= @user.username %>
+  </h2>
+  <% if @user.first_name == nil %>
+  <em>
+    <small>
+      no name data
+    </small>
+  </em>
+  <% else %>
+  <br>
+  <%= @user.first_name %>
+  <% end %>
+  <% if @user.last_name == nil %>
+  <em>
+    <small>
+      no name data
+    </small>
+  </em>
+  <% else %>
+  <%= @user.last_name %>
+  <% end %>
   <br>
   <br>
-  <div class="owned-item-list">
-    <div id="listContainer">
-      <ul id="expList">
-        <div class="left-column-OIL">
-          <li>
-            Owned Platforms ▼
-            <ul>
-              <% @user.platforms.each do |platform| %>
-              <li>
-                <span>
-                  <%= platform.name %>
-                </span>
-              </li>
-              <% end %>
-            </ul>
-          </li>
-        </div>
-        <div class="right-column-OIL">
-          <li>
-            Owned Games ▼
-            <ul>
-              <% @user.games.each do |game| %>
-              <li>
-                <span>
-                  <%= game.name %>
-                </span>
-              </li>
-              <% end %>
-            </ul>
-          </li>
-        </div>
-      </ul>
-    </div>
+  <% if @user.location == nil %>
+    <em>
+      <small>
+        no location data
+      </small>
+    </em>
+  <% else %>
+    <%= @user.location %>
+  <% end %>
   </div>
   <br>
   <br>
@@ -149,6 +109,42 @@
   </table>
   <br>
   <br>
+  <div class="owned-item-list">
+    <div id="listContainer">
+      <ul id="expList">
+        <div class="left-column-OIL">
+          <li>
+            Owned Platforms ▼
+            <ul>
+              <% @user.platforms.each do |platform| %>
+              <li>
+                <span>
+                  <%= platform.name %>
+                </span>
+              </li>
+              <% end %>
+            </ul>
+          </li>
+        </div>
+        <div class="right-column-OIL">
+          <li>
+            Owned Games ▼
+            <ul>
+              <% @user.games.each do |game| %>
+              <li>
+                <span>
+                  <%= game.name %>
+                </span>
+              </li>
+              <% end %>
+            </ul>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
 
   <h2>Friends</h2>
   <ul>
@@ -171,18 +167,24 @@
   <br>
   <br>
   <%= form_for([@user, @user.comments.new]) do |f| %>
-  <%= f.text_area :body %>
-  <%= f.submit 'Post' %>
-  <br>
-  <small>
-    <%= link_to "cancel", :back %>
-  </small> 
+  <%= f.text_area :body, class: "new-comment-box" %>
+  <%= f.submit 'Post', class: "post-new-comment" %>
   <% end %>
   <%# end %>
 
   <br>
   <% @user.last_ten_comments.each do |comment| %>
-  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+  <div class="user-comment-section">
+  <%= word_wrap(comment.body, line_width: 60) %>
+  <br>
+  <br>
+  <div class="comment-footer">
+    <small>
+      <%= comment.creator.try :username %> <%= (Time.now - comment.created_at) %> seconds ago
+    </small>
+  </div>
+  </div>
+  <br>
   <% end %>
   <br>
   <br>

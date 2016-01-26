@@ -4,7 +4,7 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   version :layout_cog do
-    process :resize_to_fill => [60, 60]
+    process :resize_to_fill => [61, 61]
   end
 
   version :profile_page do
@@ -32,6 +32,8 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   #
   # "/images/fallback/" + [layout_cog, "default.png"].compact.join('_')
   # ["small-default-user-image.png"].compact.join('_')
+
+  ActionController::Base.helpers.asset_path("image/" + [version_name, "default-user-image.png"].compact.join('_'))
 
   end
 
