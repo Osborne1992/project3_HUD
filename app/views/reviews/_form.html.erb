@@ -1,13 +1,42 @@
+<small>
+  <%= link_to "cancel", :back, class: "review-back-button" %>
+</small>
+<center>
 <%= form_for(@review) do |f| %>
-  <%= f.label :game_id, "Game: " %>
+<table>
+  <tr>
+    <td style="text-align:right;">
+      Game
+    </td>
+    <td style="width:10px;">
+    </td>
+    <td>
   <%= f.select :game_id, Game.all.map { |g| [g.name, g.id] } %>
-<br>
-<br>
-  <%= f.label :platform_id, 'Platform: ' %>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:right;">
+      <br>
+      Platform
+    </td>
+    <td style="width:10px;">
+      <br>
+    </td>
+    <td>
+      <br>
   <%= f.select :platform_id, Platform.all.map { |p| [p.name, p.id] } %>
-<br>
-<br>
-  <%= f.label :title, 'Title: ' %>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:right;">
+      <br>
+      Title
+    </td>
+    <td style="width:10px;">
+      <br>
+    </td>
+    <td>
+      <br>
   <%= f.text_field :title %>
 <br>
 <br>
@@ -76,10 +105,7 @@ Immersion
 </span>
 <br>
 <br>
-<center>
   <%= f.submit button_text  %>
-  <br>
-  <small><%= link_to "cancel", :back %></small>
 </center>
 
 <% end %>

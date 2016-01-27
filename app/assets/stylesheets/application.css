@@ -1041,6 +1041,22 @@ dropdown input:checked ~ ul{
   background: #327DB3;
 }
 
+.create-update-button-platform {
+ color: #FFFFFF;
+ font-size: 15px;
+ background: #3E8EC9;
+ border: none;
+ padding: 5px;
+}
+
+.create-update-button-platform:hover {
+ background: #327DB3;
+}
+
+.edit-platform-inputs {
+ border: 1px solid #3E8EC9;
+}
+
  /*END PLATFORM
  ========================================================================== */
  

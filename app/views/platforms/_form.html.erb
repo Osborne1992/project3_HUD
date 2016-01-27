@@ -11,7 +11,7 @@
       <td style="width:10px;">
       </td>
       <td>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "edit-platform-inputs" %>
       </td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "edit-platform-inputs" %>
       </td>
     </tr>
     <tr>
@@ -37,13 +37,14 @@
       </td>
       <td>
         <br>
-        <%= f.date_field :released %>
-        <br>
-        <br>
-        <center>
-          <%= f.submit button_text  %>
-          <br>
-          <small><%= link_to "cancel", :back %></small>
-        </center>
+        <%= f.date_field :released, class: "edit-platform-inputs" %>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <center>
+  <%= f.submit button_text, class: "create-update-button-platform"  %>
+  </center>
 
-        <% end %>
+  <% end %>
