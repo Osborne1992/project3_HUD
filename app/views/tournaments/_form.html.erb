@@ -1,61 +1,190 @@
-<%= form_for(@tournament) do |f| %>
-  <%= f.label :name, 'Tournament Name: ' %>
-  <%= f.text_field :name %>
-<br>
-  <%= f.label :private, 'Invite Only Tournament? ' %>
-  <%= f.check_box :private %>
-<br>
-<br>
-  <%= f.label :host, 'Host: ' %>
-  <%= f.text_field :host %>
-<br>
-<br>
-  <%= f.label :start_date, 'Start Date: ' %> 
-  <%= f.date_field :start_date %>
-  <br>
-  <%= f.label :end_date, "End Date: " %>
-  <%= f.date_field :end_date %>
-<br>
-<br>
-  <%= f.label :start_time, 'Start Time: ' %>
-  <%= f.time_field :start_time %>
-  <br>
-  <%= f.label :end_time, "End Time: " %>
-  <%= f.time_field :end_time %>
-<br>
-<br>
-  <%= f.label :first_prize, 'First Place Prize: ' %>
-  <%= f.text_field :first_prize %>
-<br>
-<br>
-  <%= f.label :second_prize, 'Second Place Prize: ' %>
-  <%= f.text_field :second_prize %>
-<br>
-<br>
-  <%= f.label :third_prize, 'Third Place Prize: ' %>
-  <%= f.text_field :third_prize %>
-<br>
-<br>
-  <%= f.label :game_id, 'Game: ' %>
-  <%= f.select :game_id, Game.all.map { |g| [g.name, g.id] } %>
-<br>
-<br>
-  <%= f.label :platform_id, 'Platform: ' %>
-  <%= f.select :platform_id, Platform.all.map { |p| [p.name, p.id] } %>
-<br>
-<br>
-  <%= f.label :description, 'Tournament Description: ' %>
-  <%= f.text_area :description %>
-<br>
-<br>
-  <%= f.label :location, 'Tournament Location: ' %>
-  <%= f.text_field :location %>
-<br>
-<br>
+<small>
+  <%= link_to "cancel", :back, class: "tournament-back-button" %>
+</small>
 <center>
-<%= f.submit button_text  %>
-<br>
-<small><%= link_to "cancel", :back %></small>
+  <%= form_for(@tournament) do |f| %>
+  <table>
+    <tr>
+      <td style="text-align:right;">
+        Tournament Name
+      </td>
+      <td style="width:10px;">
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Invite Only Tournament?
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.check_box :private %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Host
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :host, class: "edit-tournament-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Start Date
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.date_field :start_date, class: "edit-tournament-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        End Date
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.date_field :end_date, class: "edit-tournament-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Start Time
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.time_field :start_time, class: "edit-tournament-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        End Time
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.time_field :end_time, class: "edit-tournament-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        First Place Prize
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :first_prize %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Second Place Prize
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :second_prize %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Third Place Prize
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :third_prize %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Game
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.select :game_id, Game.all.map { |g| [g.name, g.id] } %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Platform
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.select :platform_id, Platform.all.map { |p| [p.name, p.id] } %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <br>
+        Tournament Description
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= f.text_area :description %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>Tournament Location
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :location %>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <%= f.submit button_text  %>
+  <br>
 </center>
 
 <% end %>

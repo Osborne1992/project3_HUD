@@ -2,125 +2,125 @@
   <%= link_to "cancel", :back, class: "event-back-button" %>
 </small>
 <center>
-<%= form_for(@event) do |f| %>
-<table>
-  <tr>
-    <td style="text-align:right;">
-      Event Name
-    </td>
-    <td style="width:10px;">
-    </td>
-    <td>
-      <%= f.text_field :name, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      Invite Only Event?
-    </td>
-    <td style="width:10px;">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.check_box :private, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      Host
-    </td>
-    <td style="width:10px;">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.text_field :host, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      Start Date
-    </td>
-    <td style="width:10px;">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.date_field :start_date, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      End Date
-    </td>
-    <td style="width:10px">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.date_field :end_date, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      Start Time
-    </td>
-    <td style="width:10px">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.time_field :start_time, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      End Time
-    </td>
-    <td style="width:10px">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.time_field :end_time, class: "edit-event-inputs" %>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="3">
-      <br>
-      Event Description
-    </td>
-  </tr>
-  <tr>
-    <td colspan="3">
-      <%= f.text_area :description, style: "width:100%;", class: "event-description-input" %>
-    </td>
-  </tr>
-  <tr>
-    <td style="text-align:right;">
-      <br>
-      Event Location
-    </td>
-    <td style="width:10px">
-      <br>
-    </td>
-    <td>
-      <br>
-      <%= f.text_field :location, class: "edit-event-inputs" %>
-    </td>
-  </tr>
+  <%= form_for(@event) do |f| %>
+  <table>
+    <tr>
+      <td style="text-align:right;">
+        Event Name
+      </td>
+      <td style="width:10px;">
+      </td>
+      <td>
+        <%= f.text_field :name, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Invite Only Event?
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.check_box :private, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Host
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :host, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Start Date
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.date_field :start_date, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        End Date
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.date_field :end_date, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Start Time
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.time_field :start_time, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        End Time
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.time_field :end_time, class: "edit-event-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <br>
+        Event Description
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= f.text_area :description, style: "width:100%;", class: "event-description-input" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Event Location
+      </td>
+      <td style="width:10px">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :location, class: "edit-event-inputs" %>
+      </td>
+    </tr>
   </table>
   <br>
   <br>
-    <%= f.submit button_text  %>
-    <br>
-  </center>
+  <%= f.submit button_text  %>
+  <br>
+</center>
 
-  <% end %>
+<% end %>
