@@ -1154,6 +1154,18 @@ dropdown input:checked ~ ul{
   border: 1px solid #3E8EC9;
 }
 
+.review-back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.review-back-button:hover {
+  background: #327DB3;
+}
+
 .post-new-comment-review {
   padding: 5px 10px;
   background: #3E8EC9;
@@ -1166,6 +1178,28 @@ dropdown input:checked ~ ul{
 
 .post-new-comment-review:hover {
   background: #327DB3;
+}
+
+.create-update-button-review {
+ color: #FFFFFF;
+ font-size: 15px;
+ background: #3E8EC9;
+ border: none;
+ padding: 5px;
+}
+
+.create-update-button-review:hover {
+ background: #327DB3;
+}
+
+.edit-review-inputs {
+ border: 1px solid #3E8EC9;
+}
+
+.review-description-input {
+  resize: none;
+  border: 1px solid #3E8EC9;
+  height: 150px;
 }
 
  /*END REVIEW
