@@ -1245,6 +1245,28 @@ dropdown input:checked ~ ul{
   background: #327DB3;
 }
 
+.create-update-button-tournament {
+ color: #FFFFFF;
+ font-size: 15px;
+ background: #3E8EC9;
+ border: none;
+ padding: 5px;
+}
+
+.create-update-button-tournament:hover {
+ background: #327DB3;
+}
+
+.edit-tournament-inputs {
+ border: 1px solid #3E8EC9;
+}
+
+.tournament-description-input {
+  resize: none;
+  border: 1px solid #3E8EC9;
+  height: 150px;
+}
+
  /*END TOURNAMENT
  ========================================================================== */
  

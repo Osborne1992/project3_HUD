@@ -11,7 +11,7 @@
       <td style="width:10px;">
       </td>
       <td>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@
       </td>
       <td>
         <br>
-        <%= f.check_box :private %>
+        <%= f.check_box :private, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -102,7 +102,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :first_prize %>
+        <%= f.text_field :first_prize, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -115,7 +115,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :second_prize %>
+        <%= f.text_field :second_prize, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -128,7 +128,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :third_prize %>
+        <%= f.text_field :third_prize, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -141,7 +141,7 @@
       </td>
       <td>
         <br>
-        <%= f.select :game_id, Game.all.map { |g| [g.name, g.id] } %>
+        <%= f.select :game_id, Game.all.map { |g| [g.name, g.id] }, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -154,7 +154,7 @@
       </td>
       <td>
         <br>
-        <%= f.select :platform_id, Platform.all.map { |p| [p.name, p.id] } %>
+        <%= f.select :platform_id, Platform.all.map { |p| [p.name, p.id] }, class: "edit-tournament-inputs" %>
       </td>
     </tr>
     <tr>
@@ -165,7 +165,7 @@
     </tr>
     <tr>
       <td colspan="3">
-        <%= f.text_area :description %>
+        <%= f.text_area :description, class: "tournament-description-inputs" %>
       </td>
     </tr>
     <tr>
@@ -177,7 +177,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :location %>
+        <%= f.text_field :location, class: "edit-tournament-inputs" %>
       </td>
     </tr>
   </table>
