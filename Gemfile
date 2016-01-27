@@ -9,6 +9,7 @@ gem 'rmagick'
 # gem 'omniauth-facebook'
 gem 'jquery-turbolinks'
 
+gem 'ransack'
 # gem 'friendly_id'
 # gem 'pg_search'
 
