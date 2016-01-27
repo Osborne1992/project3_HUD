@@ -675,6 +675,18 @@ dropdown input:checked ~ ul{
   background:none;
 }
 
+.add-user-button {
+  color: #FFFFFF;
+  font-size: 15px;
+  background: #3E8EC9;
+  border: none;
+  padding: 5px;
+}
+
+.add-user-button:hover {
+  background: #327DB3;
+}
+
  /*END LAYOUT
  ========================================================================== */
 
@@ -786,10 +798,33 @@ dropdown input:checked ~ ul{
   color: #FFFFFF;
   position: absolute;
   top: 85px;
+  left: 148px;
 }
 
 .edit-event-button:hover {
   background: #327DB3;
+}
+
+.create-update-button-event {
+ color: #FFFFFF;
+ font-size: 15px;
+ background: #3E8EC9;
+ border: none;
+ padding: 5px;
+}
+
+.create-update-button-event:hover {
+ background: #327DB3;
+}
+
+.edit-event-inputs {
+ border: 1px solid #3E8EC9;
+}
+
+.event-description-input {
+  resize: none;
+  border: 1px solid #3E8EC9;
+  height: 150px;
 }
 
  /*END EVENT
@@ -821,6 +856,31 @@ dropdown input:checked ~ ul{
 }
 
 .new-game-button:hover {
+  background: #327DB3;
+}
+
+.game-back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.game-back-button:hover {
+  background: #327DB3;
+}
+
+.edit-game-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+  left: 148px;
+}
+
+.edit-game-button:hover {
   background: #327DB3;
 }
 
@@ -860,9 +920,37 @@ dropdown input:checked ~ ul{
   color: #FFFFFF;
   position: absolute;
   top: 85px;
+  left: 148px;
 }
 
 .edit-group-button:hover {
+  background: #327DB3;
+}
+
+.group-comment-new {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.new-comment-box-group {
+  margin: 0 auto;
+  width: 500px;
+  height: 200px;
+  resize: none;
+  border: 1px solid #3E8EC9;
+}
+
+.post-new-comment-group {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: relative;
+  border: none;
+  bottom: 32px;
+  left: 448px;
+}
+
+.post-new-comment-group:hover {
   background: #327DB3;
 }
 
@@ -908,6 +996,7 @@ dropdown input:checked ~ ul{
   color: #FFFFFF;
   position: absolute;
   top: 85px;
+  left: 148px;
 }
 
 .edit-platform-button:hover {
@@ -993,8 +1082,36 @@ dropdown input:checked ~ ul{
 }
 
 .list-reviews {
+  padding: 5px;
   border: 2px solid #3E8EC9;
-  border-radius: 5px;
+  border-radius: 3px;
+}
+
+.review-comment-new {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.new-comment-box-review {
+  margin: 0 auto;
+  width: 500px;
+  height: 200px;
+  resize: none;
+  border: 1px solid #3E8EC9;
+}
+
+.post-new-comment-review {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: relative;
+  border: none;
+  bottom: 32px;
+  left: 448px;
+}
+
+.post-new-comment-review:hover {
+  background: #327DB3;
 }
 
  /*END REVIEW
@@ -1033,6 +1150,7 @@ dropdown input:checked ~ ul{
   color: #FFFFFF;
   position: absolute;
   top: 85px;
+  left: 148px;
 }
 
 .edit-tournament-button:hover {
@@ -1096,14 +1214,14 @@ dropdown input:checked ~ ul{
   background-repeat: no-repeat;
 }
 
-.new-comment-box {
+.new-comment-box-user {
   width: 400px;
   height: 150px;
   resize: none;
   border: 1px solid #3E8EC9;
 }
 
-.post-new-comment {
+.post-new-comment-user {
   padding: 5px 10px;
   background: #3E8EC9;
   color: #FFFFFF;
@@ -1113,7 +1231,7 @@ dropdown input:checked ~ ul{
   left: -56px;
 }
 
-.post-new-comment:hover {
+.post-new-comment-user:hover {
   background: #327DB3;
 }
 
@@ -1145,6 +1263,26 @@ dropdown input:checked ~ ul{
   background: #327DB3;
 }
 
+.update-button-profile {
+ color: #FFFFFF;
+ font-size: 15px;
+ background: #3E8EC9;
+ border: none;
+ padding: 5px;
+}
+
+.update-button-profile:hover {
+ background: #327DB3;
+}
+
+.edit-profile-inputs {
+ border: 1px solid #3E8EC9;
+}
+
+.edit-profile-picture-button {
+  font-size: 15px;
+  border: 1px solid #3E8EC9;
+}
 
  /*END USER
  ========================================================================== */

@@ -23,76 +23,131 @@
   <%= @review.body %>
   <br>
   <br>
-  <strong>Story: </strong>
-  <% (1..(@review.rate_story)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
-  <% end %>
-  <% (1..(5 - @review.rate_story)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
-  <% end %>
-  <strong>Difficulty: </strong>
-  <% (1..(@review.rate_difficulty)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
-  <% end %>
-  <% (1..(5 - @review.rate_difficulty)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
-  <% end %>
-  <strong>Length: </strong>
-  <% (1..(@review.rate_length)).each do  %>
+  <table>
+    <tr>
+      <th>
+        Art Style
+      </th>
+      <th>
+        Audio
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <% (1..(@review.rate_art_style)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
+        <% end %>
+        <% (1..(5 - @review.rate_art_style)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
+        <% end %>
+      </td>
+      <td>
+        <% (1..(@review.rate_audio)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
+        <% end %>
+        <% (1..(5 - @review.rate_audio)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Difficulty
+      </th>
+      <th>
+        Immersion
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <% (1..(@review.rate_difficulty)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
+        <% end %>
+        <% (1..(5 - @review.rate_difficulty)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
+        <% end %>
+      </td>
+      <td>
+        <% (1..(@review.rate_immersion)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
+        <% end %>
+        <% (1..(5 - @review.rate_immersion)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Length
+      </th>
+      <th>
+        Mechanics
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <% (1..(@review.rate_length)).each do  %>
   <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
   <% end %>
   <% (1..(5 - @review.rate_length)).each do  %>
   <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
   <% end %>
-  <strong>Mechanics: </strong>
-  <% (1..(@review.rate_mechanics)).each do  %>
+      </td>
+      <td>
+        <% (1..(@review.rate_mechanics)).each do  %>
   <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
   <% end %>
   <% (1..(5 - @review.rate_mechanics)).each do  %>
   <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
   <% end %>
-  <strong>Audio: </strong>
-  <% (1..(@review.rate_audio)).each do  %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Performance
+      </th>
+      <th>
+        Story
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <% (1..(@review.rate_performance)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
+        <% end %>
+        <% (1..(5 - @review.rate_performance)).each do  %>
+        <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
+        <% end %>
+      </td>
+      <td>
+        <% (1..(@review.rate_story)).each do  %>
   <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
   <% end %>
-  <% (1..(5 - @review.rate_audio)).each do  %>
+  <% (1..(5 - @review.rate_story)).each do  %>
   <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
   <% end %>
-  <strong>Performance: </strong>
-  <% (1..(@review.rate_performance)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
-  <% end %>
-  <% (1..(5 - @review.rate_performance)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
-  <% end %>
-  <strong>Art Style: </strong>
-  <% (1..(@review.rate_art_style)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
-  <% end %>
-  <% (1..(5 - @review.rate_art_style)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
-  <% end %>
-  <strong>Immersion: </strong>
-  <% (1..(@review.rate_immersion)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
-  <% end %>
-  <% (1..(5 - @review.rate_immersion)).each do  %>
-  <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
-  <% end %>
+      </td>
+    </tr>
+  </table>
   <br>
   <br>
+  <div class="review-comment-new">
   <%= form_for([@review, @review.comments.new]) do |f| %>
-  <%= f.text_area :body %>
-  <%= f.submit 'Post'  %>
-  <br>
-  <small><%= link_to "cancel", :back %></small> 
-
+  <%= f.text_area :body, class: "new-comment-box-review" %>
+  <%= f.submit 'Post', class: "post-new-comment-review"  %>
   <% end %>
   <br>
   <% @review.last_ten_comments.each do |comment| %>
-  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+  <div class="user-comment-section">
+    <%= word_wrap(comment.body, line_width: 60) %>
+    <br>
+    <br>
+    <div class="comment-footer">
+      <small>
+        <%= comment.creator.try :username %> <%= (Time.now - comment.created_at) %> seconds ago
+      </small>
+    </div>
+  </div>
   <% end %>
-  <br>
-  <br>
-  <%= link_to "Back", :reviews %> <%= link_to 'Edit', edit_review_path(@review) %>
+  </div>
 </div>

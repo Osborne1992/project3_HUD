@@ -5,55 +5,205 @@
   <h2>
     Editing...
   </h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <br>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <br>
-  <%= f.label :profile_image %>
-  <%= f.file_field :profile_image %>
-  <br>
-  <%= f.label :platform_ids, "Platforms:" %>
-  <%= f.collection_check_boxes :platform_ids, Platform.all, :id, :name %>
-  <br>
-  <%= f.label :game_ids, "Games:" %>
-  <%= f.collection_check_boxes :game_ids, Game.all.order(:name), :id, :name %>
-  <br>
-  <%= f.label :steam_id %>
-  <%= f.text_field :steam_id %>
-  <br>
-  <%= f.label :origin_id %>
-  <%= f.text_field :origin_id %>
-  <br>
-  <%= f.label :uplay_id %>
-  <%= f.text_field :uplay_id %>
-  <br>
-  <%= f.label :xbox_user %>
-  <%= f.text_field :xbox_user %>
-  <br>
-  <%= f.label :psn %>
-  <%= f.text_field :psn %>
-  <br>
-  <%= f.label :nnid %>
-  <%= f.text_field :nnid %>
-  <br>
-  New Password <i>(changing is optional)</i> and Confirm New Password<br />
-  <%= f.password_field :password, autocomplete: "off" %> <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  <br>
-  <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
-  <%= f.password_field :current_password, autocomplete: "off" %>
-  <br>
-  <%= f.submit "Update" %>
+  <table>
+    <tr>
+      <td style="text-align:right;">
+        <%= f.label :first_name %>
+      </td>
+      <td style="width:10px;">
+      </td>
+      <td>
+        <%= f.text_field :first_name, class: "edit-profile-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        <%= f.label :last_name %>
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :last_name, class: "edit-profile-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        <%= f.label :location %>
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :location, class: "edit-profile-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        <%= f.label :profile_image %>
+      </td>
+      <td style="width:10px;">
+       <br>
+     </td>
+     <td>
+       <br>
+       <%= f.file_field :profile_image, class: "edit-profile-picture-button" %>
+     </td>
+   </tr>
+   <tr>
+     <td style="text-align:right;">
+      <br>
+      Platforms
+    </td>
+    <td style="width:10px;">
+     <br>
+   </td>
+   <td>
+     <br>
+     <%= f.collection_check_boxes(:platform_ids, Platform.all, :id, :name) do |p| %>
+     <%= p.label do%>
+     <%= p.check_box + p.label %><br>
+     <% end %>
+     <% end %>
+   </td>
+ </tr>
+ <tr>
+  <td style="text-align:right;">
+    <br>
+    Games
+  </td>
+  <td style="width:10px;">
+    <br>
+  </td>
+  <td>
+    <br>
+    <%= f.collection_check_boxes(:game_ids, Game.all.order(:name), :id, :name) do |g| %>
+    <%= g.label do %>
+    <%= g.check_box + g.label %><br>
+    <% end %>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td style="text-align:right;">
+    <br>
+    <%= f.label :steam_id %>
+  </td>
+  <td style="width:10px;">
+   <br>
+ </td>
+ <td>
+   <br>
+   <%= f.text_field :steam_id, class: "edit-profile-inputs" %>
+ </td>
+</tr>
+<tr>
+  <td style="text-align:right;">
+    <br>
+    <%= f.label :origin_id %>
+  </td>
+  <td style="width:10px;">
+   <br>
+ </td>
+ <td>
+   <br>
+   <%= f.text_field :origin_id, class: "edit-profile-inputs" %>
+ </td>
+</tr>
+<tr>
+  <td style="text-align:right;">
+    <br>
+    <%= f.label :uplay_id %>
+  </td>
+  <td style="width:10px;">
+   <br>
+ </td>
+ <td>
+   <br>
+   <%= f.text_field :uplay_id, class: "edit-profile-inputs" %>
+ </td>
+</tr>
+<tr>
+  <td style="text-align:right;">
+    <br>
+    <%= f.label :xbox_user %>
+  </td>
+  <td style="width:10px;">
+   <br>
+ </td>
+ <td>
+   <br>
+   <%= f.text_field :xbox_user, class: "edit-profile-inputs" %>
+ </td>
+</tr>
+<tr>
+  <td style="text-align:right;">
+    <br>
+    <%= f.label :psn %>
+  </td>
+  <td style="width:10px;">
+   <br>
+ </td>
+ <td>
+   <br>
+   <%= f.text_field :psn, class: "edit-profile-inputs" %>
+ </td>
+</tr>
+<tr>
+  <td style="text-align:right;">
+    <br>
+    <%= f.label :nnid %>
+  </td>
+  <td style="width:10px;">
+   <br>
+ </td>
+ <td>
+   <br>
+   <%= f.text_field :nnid, class: "edit-profile-inputs" %>
+ </td>
+</tr>
+<tr>
+  <td colspan="3" style="width:100%;">
+    <br>
+    New Password <i>(changing is optional)</i> and Confirm New Password
+  </td>
+</tr>
+<tr>
+</tr>
+<tr>
+  <th colspan="3" style="width:100%;">
+    <br>
+    <%= f.password_field :password, autocomplete: "off", class: "edit-profile-inputs" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "edit-profile-inputs" %>
+  </th>
+</tr>
+<tr>
+  <td colspan="3" style="width:100%;">
+    <br>
+    <%= f.label :current_password %> <i>(to confirm your changes)</i>
+  </td>
+</tr>
+<tr>
+  <th colspan="3" style="width:100%;">
+    <br>
+    <%= f.password_field :current_password, autocomplete: "off", class: "edit-profile-inputs" %>
+  </th>
+</tr>
+</table>
+<br>
+<%= f.submit "Update", class: "update-button-profile" %>
 <% end %>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<br>
+<small>
+  Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+</small>
 
 </center>

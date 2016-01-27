@@ -3,39 +3,39 @@
     Log in
   </h2>
   <br>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <table>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <tr>
-      <td style="text-align:right;">
-        Email / Username 
-      </td>
-      <td style="width:10px;">
-      </td>
-      <td>
-        <%= f.text_field :login, autofocus: true, class: "log-in-inputs" %>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:right;">
-        <br>
-        Password 
-      </td>
-      <td style="width:10px;">
-      </td>
-      <td>
-        <br>
-        <%= f.password_field :password, autocomplete: "off", class: "log-in-inputs" %>
-      </td>
-    </tr>
-  </table>
-  <% if devise_mapping.rememberable? -%>
-  <%= f.check_box :remember_me %>
-  <%= f.label :remember_me %>
-  <% end -%>
+   <tr>
+    <td style="text-align:right;">
+      Email / Username 
+    </td>
+    <td style="width:10px;">
+    </td>
+    <td>
+      <%= f.text_field :login, autofocus: true, class: "log-in-inputs" %>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align:right;">
+      <br>
+      Password 
+    </td>
+    <td style="width:10px;">
+    </td>
+    <td>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", class: "log-in-inputs" %>
+    </td>
+  </tr>
+</table>
+<% if devise_mapping.rememberable? -%>
+<%= f.check_box :remember_me %>
+<%= f.label :remember_me %>
+<% end -%>
 <br>
 <br>
 <center>
-    <%= f.submit "Log in", class: "log-in-button-log-in" %>
+  <%= f.submit "Log in", class: "log-in-button-log-in" %>
   <% end %>
   <br>
   <br>

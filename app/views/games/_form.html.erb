@@ -1,28 +1,74 @@
-<%= form_for(@game) do |f| %>
-  <%= f.label :name, 'Game: ' %>
-  <%= f.text_field :name %>
-<br>
-<br>
-  <%= f.label :name, 'Genre: ' %>
-  <%= f.text_field :name %>
-<br>
-<br>
-  <%= f.label :developer, 'Developed by: ' %>
-  <%= f.text_field :developer %>
-<br>
-<br>
-  <%= f.label :publisher, 'Published by: ' %>
-  <%= f.text_field :publisher %>
-<br>
-<br>
-  <%= f.label :release_date, 'Released on: ' %>
-  <%= f.date_field :release_date %>
-<br>
-<br>
+<small>
+  <%= link_to "cancel", :back, class: "game-back-button" %>
+</small>
 <center>
-<%= f.submit button_text  %>
-<br>
-<small><%= link_to "cancel", :back %></small>
+  <%= form_for(@game) do |f| %>
+  <table>
+    <tr>
+      <td style="text-align:right;">
+        Game
+      </td>
+      <td style="width:10px;">
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Genre
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Developed by
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :developer %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Published by
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :publisher %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Released on
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.date_field :release_date %>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit button_text  %>
 </center>
 
 <% end %>

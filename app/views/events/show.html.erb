@@ -1,49 +1,77 @@
-Event created by <%= link_to @event.creator.username, user_path(@event.creator.id) %>
-
-<h2>
-  <%= @event.name %> hosted by <%= @event.host %> at <%= @event.location %>
-</h2>
-<h3>This Event is 
-  <% if @event.start_date > DateTime.now %>
-      Unbegun!
-  <% else %>
-    <% if @event.start_time > DateTime.now %>
-      Starting Soon!
-    <% elsif @event.end_date > DateTime.now %>
-      In Progress!
+<small>
+  <%= link_to "Back", events_path, class: "event-back-button" %> <%= link_to 'Edit', edit_event_path(@event), class: "edit-event-button" %>
+</small>
+<div class="profile-wrap">
+  <small>
+    Event created by <%= link_to @event.creator.username, user_path(@event.creator.id) %>
+  </small>
+  <h1>
+    <%= @event.name %>!
+  </h1>
+  <h2>
+    Hosted by <%= @event.host %> at <%= @event.location %>
+  </h2>
+  <br>
+  <h3>Event Status: 
+    <% if @event.start_date > DateTime.now %>
+    Unbegun!
     <% else %>
-      <% if @event.end_time > DateTime.now %>
-        Finishing Soon!
-      <% else %>
-        Concluded!
-      <% end %>
+    <% if @event.start_time > DateTime.now %>
+    Starting Soon!
+    <% elsif @event.end_date > DateTime.now %>
+    In Progress!
+    <% else %>
+    <% if @event.end_time > DateTime.now %>
+    Finishing Soon!
+    <% else %>
+    Concluded!
     <% end %>
-  <% end %>
-</h3>
-
-<% if @event.private == true %>
+    <% end %>
+    <% end %>
+  </h3>
+  <br>
+  <% if @event.private == true %>
   PRIVATE EVENT Invite only!
-<% else %>
+  <% else %>
   PUBLIC EVENT Come one, come all!
-<% end %>
-<br>
-From <%= @event.start_date.strftime('%-d %b %Y') %> at <%= @event.start_time.strftime('%H %M') %> until <%= @event.end_time.strftime('%H %M') %>, <%= @event.end_date.strftime('%-d %b %Y') %>
-<br>
-<br>
-<%= @event.description %>
-<br>
-<br>
-<%= form_for([@event, @event.comments.new]) do |f| %>
-  <%= f.text_area :body %>
-<%= f.submit 'Post'  %>
-<br>
-<small><%= link_to "cancel", :back %></small> 
-
-<% end %>
-<br>
-<% @event.last_ten_comments.each do |comment| %>
-  <%= comment.creator.try :username %> - <%= comment.body %> <br>
-<% end %>
-<br>
-<br>
-<%= link_to "Back", :back %> <%= link_to 'Edit', edit_event_path(@event) %>
+  <% end %>
+  <br>
+  From <%= @event.start_date.strftime('%-d %b %Y') %> at <%= @event.start_time.strftime('%H %M') %> until <%= @event.end_time.strftime('%H %M') %>, <%= @event.end_date.strftime('%-d %b %Y') %>
+  <br>
+  <br>
+  <%= @event.description %>
+  <br>
+  <br>
+  <h3>
+    Event Members:
+  </h3>
+  <%= form_for([@event, @event.event_users.new]) do |f| %>
+  <%= f.select :user_id, (User.all - @event.users).map { |u| [u.username, u.id] } %>
+  <%= f.submit 'Add', class: "add-user-button" %>
+  <% end %>
+  <br>
+  <% @event.users.each do |user| %>
+  <%= user.username %><br>
+  <% end %>
+  <br>
+  <br>
+  <%= form_for([@event, @event.comments.new]) do |f| %>
+  <%= f.text_area :body, class: "new-comment-box-user" %>
+  <%= f.submit 'Post', class: "post-new-comment-user" %>
+  <% end %>
+  <br>
+  <% @event.last_ten_comments.each do |comment| %>
+  <div class="user-comment-section">
+    <%= word_wrap(comment.body, line_width: 60) %>
+    <br>
+    <br>
+    <div class="comment-footer">
+      <small>
+        <%= comment.creator.try :username %> <%= (Time.now - comment.created_at) %> seconds ago
+      </small>
+    </div>
+  </div>
+  <br>  <% end %>
+  <br>
+  <br>
+</div>

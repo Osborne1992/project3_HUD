@@ -1,21 +1,52 @@
+<small>
+  <%= link_to "Back", :groups, class: "group-back-button" %> <%= link_to 'Edit', edit_group_path(@group), class: "edit-group-button" %>
+</small>
+<div class="profile-wrap">
 <h2>
   <%= @group.name %>
 </h2>
-<%= @group.description %>
 <small>Group created by <%= @group.creator.username %></small>
 <br>
 <br>
-<%= form_for([@group, @group.comments.new]) do |f| %>
-  <%= f.text_area :body %>
-<%= f.submit 'Post'  %>
+<%= @group.description %>
 <br>
-<small><%= link_to "cancel", :back %></small> 
+<br>
+<h3>
+  Group Members:
+</h3>
+<%= form_for([@group, @group.group_users.new]) do |f| %>
+<%= f.select :user_id, (User.all - @group.users).map { |u| [u.username, u.id] } %>
+<%= f.submit 'Add', class: "add-user-button" %>
+<% end %>
+<br>
+<% @group.users.each do |user| %>
+  <%= user.username %><br>
+<% end %>
+<br>
+<br>
+<div class="group-comment-new">
+<%= form_for([@group, @group.comments.new]) do |f| %>
+<%= f.text_area :body, class: "new-comment-box-group" %>
+<%= f.submit 'Post', class: "post-new-comment-group" %>
+</div>
+<br>
 
 <% end %>
 <br>
+<div class="review-comment-new">
 <% @group.comments.limit(10).each do |comment| %>
-  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<div class="user-comment-section">
+  <%= word_wrap(comment.body, line_width: 60) %>
+  <br>
+  <br>
+  <div class="comment-footer">
+    <small>
+      <%= comment.creator.try :username %> <%= (Time.now - comment.created_at) %> seconds ago
+    </small>
+  </div>
+</div>
 <% end %>
+</div>
 <br>
 <br>
-<%= link_to "Back", :groups %> <%= link_to 'Edit', edit_group_path(@group) %>
+</div>

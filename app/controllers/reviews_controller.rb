@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @reviews = Review.all.order(:created_at)
+    @reviews = Review.all.order(created_at: :desc)
   end
 
   def show

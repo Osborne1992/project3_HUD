@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :comments
   resources :events do
     resources :comments
+    resources :event_users
   end
   resources :event_tournaments
-  resources :event_users
   resources :friendships
   resources :games
   resources :game_platforms
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :game_users
   resources :groups do
     resources :comments
+    resources :group_users
   end
-  resources :group_users
   resources :platforms
   resources :platform_users
   resources :private_messages
@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   end
   resources :tournaments do
     resources :comments
+    resources :tournament_users
   end
-  resources :tournament_users
   resources :users, only: [:index, :show] do
     resources :comments
   end

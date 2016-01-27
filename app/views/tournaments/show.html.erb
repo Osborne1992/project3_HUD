@@ -1,34 +1,45 @@
-Tournament created by <%= link_to @tournament.creator.username, user_path(@tournament.creator.id) %>
-
+<small>
+  <%= link_to "Back", :tournaments, class: "tournament-back-button" %> <%= link_to 'Edit', edit_tournament_path(@tournament), class: "edit-tournament-button" %>
+</small>
+<div class="profile-wrap">
+<small>
+  Tournament created by <%= link_to @tournament.creator.username, user_path(@tournament.creator.id) %>
+</small>
+<h1>
+  <%= @tournament.name %>!
+</h1>
 <h2>
-  <%= @tournament.name %> hosted by <%= @tournament.host %> at <%= @tournament.location %>
+  Hosted by <%= @tournament.host %> at <%= @tournament.location %>
 </h2>
+<br>
 
-<h3>This Tournament is 
+<h3>Tournament Status:  
   <% if @tournament.start_date > DateTime.now %>
-      Unbegun!
+  Unbegun!
   <% else %>
-    <% if @tournament.start_time > DateTime.now %>
-      Starting Soon!
-    <% elsif @tournament.end_date > DateTime.now %>
-      In Progress!
-    <% else %>
-      <% if @tournament.end_time > DateTime.now %>
-        Finishing Soon!
-      <% else %>
-        Concluded!
-      <% end %>
-    <% end %>
+  <% if @tournament.start_time > DateTime.now %>
+  Starting Soon!
+  <% elsif @tournament.end_date > DateTime.now %>
+  In Progress!
+  <% else %>
+  <% if @tournament.end_time > DateTime.now %>
+  Finishing Soon!
+  <% else %>
+  Concluded!
+  <% end %>
+  <% end %>
   <% end %>
 </h3>
-
+<br>
 <% if @tournament.private == true %>
-  PRIVATE TOURNAMENT
+PRIVATE TOURNAMENT
 <% else %>
-  PUBLIC TOURNAMENT
+PUBLIC TOURNAMENT
 <% end %>
 <br>
+<br>
 Playing <%= link_to @tournament.game.name, game_path(@tournament.game.id) %> on the <%= link_to @tournament.platform.name, platform_path(@tournament.platform.id) %>
+<br>
 <br>
 From <%= @tournament.start_date.strftime('%-d %b %Y') %> at <%= @tournament.start_time.strftime('%H %M') %> until <%= @tournament.end_time.strftime('%H %M') %>, <%= @tournament.end_date.strftime('%-d %b %Y') %>
 <br>
@@ -43,17 +54,37 @@ Third Place receives: <%= @tournament.third_prize %>
 <%= @tournament.description %>
 <br>
 <br>
-<%= form_for([@tournament, @tournament.comments.new]) do |f| %>
-  <%= f.text_area :body %>
-<%= f.submit 'Post'  %>
+<h3>
+  Tournament Members:
+</h3>
+<%= form_for([@tournament, @tournament.tournament_users.new]) do |f| %>
+<%= f.select :user_id, (User.all - @tournament.users).map { |u| [u.username, u.id] } %>
+<%= f.submit 'Add', class: "add-user-button" %>
+<% end %>
 <br>
-<small><%= link_to "cancel", :back %></small> 
-
+<% @tournament.users.each do |user| %>
+<%= user.username %><br>
+<% end %>
+<br>
+<br>
+<%= form_for([@tournament, @tournament.comments.new]) do |f| %>
+<%= f.text_area :body, class: "new-comment-box-user" %>
+<%= f.submit 'Post', class: "post-new-comment-user"  %>
 <% end %>
 <br>
 <% @tournament.last_ten_comments.each do |comment| %>
-  <%= comment.creator.try :username %> - <%= comment.body %> <br>
+<div class="user-comment-section">
+  <%= word_wrap(comment.body, line_width: 60) %>
+  <br>
+  <br>
+  <div class="comment-footer">
+    <small>
+      <%= comment.creator.try :username %> <%= (Time.now - comment.created_at) %> seconds ago
+    </small>
+  </div>
+</div>
+<br>
 <% end %>
 <br>
 <br>
-<%= link_to "Back", :tournaments %> <%= link_to 'Edit', edit_tournament_path(@tournament) %>
+</div>

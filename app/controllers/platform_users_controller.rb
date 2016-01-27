@@ -17,7 +17,6 @@ class PlatformUsersController < ApplicationController
   def create
     platform_user = current_user.created_platform_users.create(platform_user_params)
     redirect_to( platform_user_path( platform_user.id ) )
-    binding.pry
   end
 
   def destroy
@@ -34,7 +33,6 @@ class PlatformUsersController < ApplicationController
     platform_user = find_platform_user
     platform_user.update(platform_user_params)
     redirect_to(platform_user_path(platform_user.id))
-    binding.pry
   end
 
   private

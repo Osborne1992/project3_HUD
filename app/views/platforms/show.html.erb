@@ -1,4 +1,9 @@
+<small>
+  <%= link_to "Back", :back, class: "platform-back-button" %> <%= link_to 'Edit', edit_platform_path(@platform), class: "edit-platform-button" %>
+</small>
+<div class="profile-wrap">
 <h2>
-  <small><%= link_to "Back", :back %></small> <%= @platform.name %> <small><%= link_to 'Edit', edit_platform_path(@platform) %></small>
+  <%= @platform.name %>
 </h2>
+<br>
 Made and distributed by <%= @platform.owner %>. First released on <%= @platform.released %>

@@ -1,12 +1,16 @@
 <div class="list-reviews">
   <h2>
-    <%= review.game.name %> 
-    <% (1..(review.rate_average)).each do  %>
+    <% (1..(review.rate_average)).each do %>
     <%= image_tag 'http://i.imgur.com/WbDtQ8h.png' %>
     <% end %>
     <% (1..(5 - review.rate_average)).each do  %>
     <%= image_tag 'http://i.imgur.com/WaTJ06O.png' %>
-    <% end %> 
-    <%= link_to("#{review.title}", review_path(review)) %> <small>by <%= review.user.try(:username) %></small>
+    <% end %> - 
+    <%= link_to("#{review.title}", review_path(review)) %>
+    <br>
+    <%= review.game.name %>
+    <br>
+    <small>by <%= review.user.try(:username) %></small>
   </h2>
 </div>
+<br>
