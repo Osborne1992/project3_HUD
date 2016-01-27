@@ -11,7 +11,7 @@
       <td style="width:10px;">
       </td>
       <td>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "edit-game-inputs" %>
       </td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "edit-game-inputs" %>
       </td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :developer %>
+        <%= f.text_field :developer, class: "edit-game-inputs" %>
       </td>
     </tr>
     <tr>
@@ -50,7 +50,7 @@
       </td>
       <td>
         <br>
-        <%= f.text_field :publisher %>
+        <%= f.text_field :publisher, class: "edit-game-inputs" %>
       </td>
     </tr>
     <tr>
@@ -63,12 +63,12 @@
       </td>
       <td>
         <br>
-        <%= f.date_field :release_date %>
+        <%= f.date_field :release_date, class: "edit-game-inputs" %>
       </td>
     </tr>
   </table>
   <br>
-  <%= f.submit button_text  %>
+  <%= f.submit button_text, class: "create-update-button-game"  %>
 </center>
 
 <% end %>
