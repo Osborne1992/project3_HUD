@@ -165,7 +165,7 @@
     </tr>
     <tr>
       <td colspan="3">
-        <%= f.text_area :description, class: "tournament-description-inputs" %>
+        <%= f.text_area :description, style: "width:100%;", class: "tournament-description-input" %>
       </td>
     </tr>
     <tr>
@@ -183,7 +183,7 @@
   </table>
   <br>
   <br>
-  <%= f.submit button_text  %>
+  <%= f.submit button_text, class: "create-update-button-tournament" %>
   <br>
 </center>
 
