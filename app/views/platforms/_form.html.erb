@@ -1,20 +1,49 @@
-<%= form_for(@platform) do |f| %>
-  <%= f.label :name, 'Platform: ' %>
-  <%= f.text_field :name %>
-<br>
-<br>
-  <%= f.label :name, 'Maker: ' %>
-  <%= f.text_field :name %>
-<br>
-<br>
-  <%= f.label :released, 'Released on: ' %>
-  <%= f.date_field :released %>
-<br>
-<br>
+<small>
+  <%= link_to "cancel", :back, class: "game-back-button" %>
+</small>
 <center>
-<%= f.submit button_text  %>
-<br>
-<small><%= link_to "cancel", :back %></small>
-</center>
+  <%= form_for(@platform) do |f| %>
+  <table>
+    <tr>
+      <td style="text-align:right;">
+        Platform
+      </td>
+      <td style="width:10px;">
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Maker
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Released on
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.date_field :released %>
+        <br>
+        <br>
+        <center>
+          <%= f.submit button_text  %>
+          <br>
+          <small><%= link_to "cancel", :back %></small>
+        </center>
 
-<% end %>
+        <% end %>

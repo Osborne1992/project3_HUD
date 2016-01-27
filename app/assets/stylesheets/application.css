@@ -970,6 +970,28 @@ dropdown input:checked ~ ul{
   background: #327DB3;
 }
 
+.create-update-button-group {
+ color: #FFFFFF;
+ font-size: 15px;
+ background: #3E8EC9;
+ border: none;
+ padding: 5px;
+}
+
+.create-update-button-group:hover {
+ background: #327DB3;
+}
+
+.edit-group-inputs {
+ border: 1px solid #3E8EC9;
+}
+
+.group-description-input {
+  resize: none;
+  border: 1px solid #3E8EC9;
+  height: 150px;
+}
+
  /*END GROUP
  ========================================================================== */
 

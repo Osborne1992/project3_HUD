@@ -1,24 +1,47 @@
-<%= form_for(@group) do |f| %>
-  <%= f.label :name, 'Group Name: ' %>
-  <%= f.text_field :name %>
-<br>
-<br>
-  <%= f.label :private, 'Check box to make Private (Invite Only): ' %>
-  <%= f.check_box :private %>
-<br>
-<br>
-  <%= f.label :description, 'Group Description:' %>
-  <br>
-  <%= f.text_area :description %>
-
-<br>
-<br>
+<small>
+  <%= link_to "cancel", :back, class: "group-back-button" %>
+</small>
 <center>
-  <%= f.submit button_text  %>
+  <%= form_for(@group) do |f| %>
+  <table>
+    <tr>
+      <td style="text-align:right;">
+        Group Name
+      </td>
+      <td style="width:10px;">
+      </td>
+      <td>
+      <%= f.text_field :name, class: "edit-group-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;">
+        <br>
+        Private Group?
+      </td>
+      <td style="width:10px;">
+        <br>
+      </td>
+      <td>
+        <br>
+        <%= f.check_box :private, class: "edit-group-inputs" %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <br>
+        Group Description
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= f.text_area :description, style: "width:100%;", class: "group-description-input" %>
+      </td>
+    </tr>
+  </table>
   <br>
-  <small>
-    <%= link_to "cancel", :back %>
-  </small>
+  <br>
+  <%= f.submit button_text  %>
 </center>
 
 <% end %>
