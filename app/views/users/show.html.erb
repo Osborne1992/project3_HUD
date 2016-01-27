@@ -210,7 +210,7 @@
     <br>
     <div class="comment-footer">
       <small>
-        <%= comment.creator.try :username %> <%= (Time.now - comment.created_at) %> seconds ago
+        <%= comment.creator.try :username %> <%= time_ago_in_words(comment.created_at) %> ago
       </small>
     </div>
   </div>
