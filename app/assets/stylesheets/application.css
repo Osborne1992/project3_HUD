@@ -447,6 +447,7 @@
 
  a {
   text-decoration: none;
+  color: #3E8EC9;
 }
 
 .box {
@@ -593,6 +594,7 @@ dropdown input:checked ~ ul{
   padding-left: 0;
   position: absolute;
   bottom: -18px;
+  font-size: 12px;
 }
 
 .navlinks li {
@@ -621,7 +623,6 @@ dropdown input:checked ~ ul{
 .top-bar {
   width: 1080px;
   height: 85px;
-  top: -10px;
   margin: 0 auto;
 }
 
@@ -636,17 +637,15 @@ dropdown input:checked ~ ul{
   height: 24px;
 }
 
-.search-go {
-  border: 1px solid #FFFFFF;
-  color: #FFFFFF;
+.search-button-nav {
+  border: 1px solid white;
   position: absolute;
-  padding: 2px;
-  right: 205px;
-  background-color: #3E8EC9;
+  top: 0;
+  left: 400px;
 }
 
-.search-go:hover {
-  background-color: #327db3;
+.search-button-nav:hover {
+  background:none;
 }
 
 .profile-circle {
@@ -654,13 +653,72 @@ dropdown input:checked ~ ul{
   right: 75px;
 }
 
+.hud-logo-nav {
+  background:none;
+}
+
 .hud-logo-nav:hover {
+  background:none;
+}
+
+.raise-username-nav {
+  position: absolute;
+  top: 35px;
+  left: 80px;
+}
+
+.circle-profile-nav-image {
+  border-radius: 50%;
+}
+
+.profile-image-remove-link:hover {
   background:none;
 }
 
  /*END LAYOUT
  ========================================================================== */
 
+ /*START LOG-IN*/
+
+ .log-in-button-log-in {
+  color: #FFFFFF;
+  font-size: 15px;
+  background: #3E8EC9;
+  border: none;
+  padding: 5px;
+ }
+
+ .log-in-button-log-in:hover {
+  background: #327DB3;
+ }
+
+ .log-in-inputs {
+  border: 1px solid #3E8EC9;
+ }
+
+ /*END LOG-IN
+ ========================================================================== */
+
+ /*START SIGN UP*/
+
+ .sign-up-button-sign-up {
+  color: #FFFFFF;
+  font-size: 15px;
+  background: #3E8EC9;
+  border: none;
+  padding: 5px;
+ }
+
+ .sign-up-button-sign-up:hover {
+  background: #327DB3;
+ }
+
+ .sign-up-inputs {
+  border: 1px solid #3E8EC9;
+ }
+
+ /*END SIGN UP
+ ========================================================================== */
 
  /*START HOME*/
 
@@ -710,11 +768,43 @@ dropdown input:checked ~ ul{
   background: #327DB3;
 }
 
+.event-back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.event-back-button:hover {
+  background: #327DB3;
+}
+
+.edit-event-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.edit-event-button:hover {
+  background: #327DB3;
+}
+
  /*END EVENT
  ========================================================================== */
 
 
  /*START FRIENDSHIP*/
+
+ .lower-friend-button {
+  padding-top: 11px;
+ }
+
+ .add-friend-button:hover {
+  background: none;
+ }
 
  /*END FRIENDSHIP
  ========================================================================== */
@@ -752,6 +842,30 @@ dropdown input:checked ~ ul{
   background: #327DB3;
 }
 
+.group-back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.group-back-button:hover {
+  background: #327DB3;
+}
+
+.edit-group-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.edit-group-button:hover {
+  background: #327DB3;
+}
+
  /*END GROUP
  ========================================================================== */
 
@@ -773,6 +887,30 @@ dropdown input:checked ~ ul{
 }
 
 .new-platform-button:hover {
+  background: #327DB3;
+}
+
+.platform-back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.platform-back-button:hover {
+  background: #327DB3;
+}
+
+.edit-platform-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.edit-platform-button:hover {
   background: #327DB3;
 }
 
@@ -849,9 +987,14 @@ dropdown input:checked ~ ul{
   position: relative;
   float: right;
   display: block;
-  width: 16px;
-  height: 16px;
-  background: url('https://s3-eu-west-1.amazonaws.com/uploads-eu.hipchat.com/407672/2786203/Nd62JHSuBhCJbgX/twostars.png') 0 -16px;
+  width: 15px;
+  height: 15px;
+  background: url('http://i.imgur.com/HEW7O2P.png') 0 -15px;
+}
+
+.list-reviews {
+  border: 2px solid #3E8EC9;
+  border-radius: 5px;
 }
 
  /*END REVIEW
@@ -869,6 +1012,30 @@ dropdown input:checked ~ ul{
 }
 
 .new-tournament-button:hover {
+  background: #327DB3;
+}
+
+.tournament-back-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.tournament-back-button:hover {
+  background: #327DB3;
+}
+
+.edit-tournament-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.edit-tournament-button:hover {
   background: #327DB3;
 }
 
@@ -897,7 +1064,7 @@ dropdown input:checked ~ ul{
 
 .user-details {
   position: absolute;
-  top: 150px;
+  top: 125px;
 }
 
 .friend-request li {
@@ -931,7 +1098,7 @@ dropdown input:checked ~ ul{
 
 .new-comment-box {
   width: 400px;
-  height: 200px;
+  height: 150px;
   resize: none;
   border: 1px solid #3E8EC9;
 }
@@ -960,6 +1127,24 @@ dropdown input:checked ~ ul{
   position: relative;
   bottom: 0;
 }
+
+.user-gamer-tags {
+  max-height: 50px;
+  max-width: 50px;
+}
+
+.back-to-profile-button  {
+  padding: 5px 10px;
+  background: #3E8EC9;
+  color: #FFFFFF;
+  position: absolute;
+  top: 85px;
+}
+
+.back-to-profile-button:hover {
+  background: #327DB3;
+}
+
 
  /*END USER
  ========================================================================== */

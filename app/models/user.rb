@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, 
   :validatable
-  
+
+  before_create :set_default_role
+
   has_many :albums
   has_many :reviews
   has_many :comments, as: :commentable
@@ -40,6 +42,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :username, :case_sensitive => false
+  validates :username, length: { minimum: 3 }
+  validates :username, length: { maximum: 12 }
   validate :validate_username
 
   validates :email, uniqueness: true
@@ -75,10 +79,9 @@ class User < ActiveRecord::Base
     comments.order(:created_at).reverse_order.limit(10)
   end
 
-
   private
   def set_default_role
-    self.role ||= Role.find_by_name('registered')
+    self.role ||= 'registered'
   end
 
 end

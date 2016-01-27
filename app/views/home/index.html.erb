@@ -1,7 +1,8 @@
 <div class="profile-wrap">
 <br>
 <% if user_signed_in? %>
-  <%= render partial: "reviews/review", collection: @reviews %>
+  <%= render @reviews %>
+  <%#= render partial: "users/home_user", collection: @users %>
 <% else %>
   <center>
     <h2>

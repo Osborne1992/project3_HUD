@@ -12,11 +12,11 @@
       <div class="box box-1">
       </div>
       <div class="box box-2">
-      <%= link_to image_tag("/image/small_hud.jpg"), root_path, class: "hud-logo-nav" %>
+      <%= link_to image_tag("http://i.imgur.com/hK5s29j.png"), root_path, class: "hud-logo-nav" %>
       </div>
       <div class="box box-6 higher-search-bar">
         <input class="search-bar" placeholder="search hud...">
-        <button class="search-go">GO!</button>
+        <%= link_to image_tag("http://i.imgur.com/umczhC0.png", class: "search-button-nav"), class: "search-go" %></button>
         <br>
         <br>
         <% if user_signed_in? %>
@@ -51,7 +51,7 @@
           <input id="toggle2" type="checkbox">
           <label for="toggle2" class="animate">
             <% if user_signed_in? %>
-            <%= link_to image_tag(current_user.profile_image.layout_cog.url), user_path(current_user) %> <%= current_user.username %>
+            <%= link_to image_tag(current_user.profile_image.layout_cog.url, class: "circle-profile-nav-image"), user_path(current_user), class: "profile-image-remove-link" %> <div class="raise-username-nav"><%= current_user.username %></div>
             <i class="fa fa-bars float-right"></i></label>
             <ul class="animate wl">
               <li class="animate"><%= link_to "Profile", user_path(current_user) %><i class="fa fa-code float-right"></i></li>
@@ -60,7 +60,7 @@
               <li class="animate"><%= link_to "Log out", destroy_user_session_path, method: :delete %><i class="fa fa-cog float-right"></i></li>
             </ul>
             <% else %>
-            <%= image_tag("/image/layout_cog_default-user-image.png") %><i class="fa fa-bars float-right"></i></label>
+            <%= image_tag("/image/layout_cog_default-user-image.png", class: "circle-profile-nav-image") %><i class="fa fa-bars float-right"></i></label>
             <ul class="animate wl">
               <li class="animate">
                 <%= link_to "Sign In", new_user_session_path %>
@@ -81,8 +81,14 @@
     <br>
     <div class="container">
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="profile-wrap">
+        <p class="notice">
+          <%= notice %>
+        </p>
+        <p class="alert">
+          <%= alert %>
+        </p>
+      </div>
 
       <%= yield %>
 

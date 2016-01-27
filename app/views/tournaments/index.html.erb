@@ -1,5 +1,7 @@
-<%= link_to "Create a Tournament", new_tournament_path, class: "new-tournament-button" %>
+<small>
+  <%= link_to "Create Tournament", new_tournament_path, class: "new-tournament-button" %>
+</small>
 
-
-<%= render @tournaments %>
-
+<div class="profile-wrap">
+  <%= render @tournaments %>
+</div>
