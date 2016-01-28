@@ -39,5 +39,7 @@ Role.delete_all
 end
 
 User.delete_all
-User.create!(first_name: "Simon", last_name: "Osborne", username: "Osborne1992", email: "src_osborne1992@hotmail.co.uk", password: "password", role: "admin")
-User.create!(first_name: "Simo", last_name: "Osbro", username: "Osinaut", email: "osinaut@gmail.com", password: "password", role: "registered")
+User.create!(first_name: "Simon", last_name: "Osborne", username: "Osborne1992", email: "simon@simon.simon", password: "password", role: "admin", steam_id: "Osborne1992", origin_id: "Osborne1992", uplay_id: "OssyOsborne1992", xbox_user: "Osborne1992", location: "Edinburgh")
+User.create!(first_name: "Lord Pav", last_name: "Lord the Third", username: "Pavlord", email: "pav@pav.pav", password: "password", role: "registered", steam_id: "Pavl0rd69", xbox_user: "xX360n0Sc0p3Xx", location: "Pavlordia")
+User.create!(first_name: "Dan", last_name: "Stephen", username: "Danibokke", email: "dan@dan.com", password: "password", role: "registered", steam_id: "Stephen1992", origin_id: "Danibokke", uplay_id: "Danibokke", xbox_user: "Danibokke", location: "Glasgow")
+User.create!(first_name: "Peter", last_name: "P", username: "PetiePee", email: "pete@pete.pete", password: "password", role: "registered")

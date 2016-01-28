@@ -21,7 +21,7 @@
     Written by <%= review.user.username %>
   </small>
   <br>
-  <%= review.body %>
+  <%= "#{review.body[0...225]}..."  %>
   </div>
   <% end %>
   </div>
